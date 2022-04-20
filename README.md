@@ -6,4 +6,8 @@
 2. npm install @11ty/eleventy
 3. add start script to package.json: npx @11ty/eleventy --serve
 4. add build script to same: npx @11ty/eleventy
+5. create /src/
+6. mv index.md src/
+7. create .eleventy.js in project root
+8. create /src/_includes/layout.njk
 
