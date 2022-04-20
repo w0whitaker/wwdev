@@ -10,4 +10,8 @@
 6. mv index.md src/
 7. create .eleventy.js in project root
 8. create /src/_includes/layout.njk
+9. add frontmatter to index.md; state layout and title
+10. create /src/style.css and link it in layout.njk
+11. passthrough css: eleventyConfig.addPassthroughCopy("src/style.css");
+
 
