@@ -105,3 +105,6 @@ dist
 
 # 11ty output
 _site/
+
+# editor
+*.code-workspace
