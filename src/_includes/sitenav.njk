@@ -1,0 +1,15 @@
+{% set currentUrl = page.url %}
+
+<nav>
+  <div>
+    {% if currentUrl != '/' %}
+    <a href="/">{{ meta.siteName }}</a>
+    {% endif %}
+    <ul>
+      {% for link in collections.pages %}
+      <li id="{{ link.data.title | lower }}">
+        <a href="{{ link.url }}">{{ link.data.title }}</a>
+      </li>
+      {%- endfor %}
+    </ul>
+</nav>
