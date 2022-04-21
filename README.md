@@ -1,7 +1,8 @@
 # wwdev
 *This is the portfolio site for William Whitaker.*
 
-## 11ty [setup](https://sia.codes/posts/itsiest-bitsiest-eleventy-tutorial/)
+## 11ty 
+### [setup](https://sia.codes/posts/itsiest-bitsiest-eleventy-tutorial/)
 1. npm init -y
 2. npm install @11ty/eleventy
 3. add start script to package.json: npx @11ty/eleventy --serve
@@ -14,4 +15,16 @@
 10. create /src/style.css and link it in layout.njk
 11. passthrough css: eleventyConfig.addPassthroughCopy("src/style.css");
 
+### collections
+1. add custom collection to eleventy.js:
+```
+eleventyConfig.addCollection("projects", function(collection) {
+    return collection.getFilteredByGlob("src/projects/*.md").reverse();
+  });
+```
+2. md foo/
+3. touch foo/foo.json
+4. add frontmatter to foo.json
+5. add content to /foo (.njk or .md)
+6. 
 
