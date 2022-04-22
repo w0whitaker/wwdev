@@ -1,3 +1,5 @@
+const markdownIt = require("markdown-it");
+
 module.exports = function(eleventyConfig) {
   // Copy `src/style.css` to `_site/style.css`
   eleventyConfig.addPassthroughCopy("src/style.css");
@@ -12,6 +14,11 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.setFrontMatterParsingOptions({
     excerpt: true,
     excerpt_separator: "<!-- excerpt -->"
+  });
+
+  // Parse Markdown properly in excerpts
+  eleventyConfig.addFilter("md", function (content = "") {
+    return markdownIt({ html: true }).render(content);
   });
 
   // Set custom directories for input, output, includes, and data
