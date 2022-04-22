@@ -6,16 +6,12 @@ pagination:
   size: 2
   alias: posts
 ---
-{{ data.page | log }}
 <h2>posts</h2>
 <ul>
   {% for post in posts %}
-  <li><a href="{{ post.url }}">{{ post.data.title }}</a></li>
-  {% endfor %}
-</ul>
-<h2>pages</h2>
-<ul>
-  {% for page in collections.pages %}
-  <li><a href="{{ page.url | url }}">{{ page.data.title }}</a></li>
+  <li>
+    <a href="{{ post.url }}">{{ post.data.title }}</a>
+    <p>{{ post.data.excerpt }}</p>
+  </li>
   {% endfor %}
 </ul>

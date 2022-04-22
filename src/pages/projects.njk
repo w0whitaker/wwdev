@@ -8,7 +8,6 @@ title: projects
   {% for project in collections.projects %}
   <li>
     <a href="{{ project.url }}">{{ project.data.title }}</a>
-    {{ project.data | log }}
     <p>{{ project.data.excerpt | md | safe }}</p>
   </li>
   {% endfor %}
