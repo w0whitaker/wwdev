@@ -1,10 +1,10 @@
 ---
 layout: page.njk
 ---
-
+{{ page.fileSlug | log }}
 <main>
   <article>
     <h3>{{ title }}</h3>
-    {{ page.excerpt }}
+    {{ content | safe }}
   </article>
 </main>
