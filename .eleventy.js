@@ -7,6 +7,13 @@ module.exports = function(eleventyConfig) {
     return collection.getFilteredByGlob("src/pages/*.njk").reverse();
   });
 
+
+  // Front-matter parsing with gray-matter
+  eleventyConfig.setFrontMatterParsingOptions({
+    excerpt: true,
+    excerpt_separator: "<!-- excerpt -->"
+  });
+
   // Set custom directories for input, output, includes, and data
   return {
     passthroughFileCopy: true,

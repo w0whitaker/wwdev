@@ -3,6 +3,13 @@ title: projects
 ---
 
 <main>
-  <h3>{{ title }} - blah</h3>
-  <p>Greenfield .NET emoji protected reflection void markup DSL perf matters. Rm -rf * bitwise operator Github child streams architecture. Class OTP cowboy coding Babel sudo budget XML instance driver engineer.</p>
+  <h2>projects</h2>
+<ul>
+  {% for project in collections.projects %}
+  <li>
+    <a href="{{ project.url }}">{{ project.data.title }}</a>
+    <p>{{ project.data.page.excerpt }}</p>
+  </li>
+  {% endfor %}
+</ul>
 </main>
