@@ -21,6 +21,11 @@
   },
   "homepage": "https://github.com/w0whitaker/wwdev#readme",
   "dependencies": {
-    "@11ty/eleventy": "^1.0.1"
+    "@11ty/eleventy": "^1.0.1",
+    "classnames": "^2.3.1"
+  },
+  "devDependencies": {
+    "@11ty/eleventy-img": "^2.0.0",
+    "outdent": "^0.8.0"
   }
 }
