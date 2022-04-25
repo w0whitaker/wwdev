@@ -1,0 +1,53 @@
+@use 'theme';
+
+nav {
+  a,
+  li a {
+    width: calc(100vw / 3);
+    @include theme.nav-link;
+  }
+  a {
+    align-self: flex-start;
+    order: 2;
+    padding: calc((33vw - 1.5em) / 4) 0;
+  }
+  a:not(ul a) {
+    background: black;
+    position: relative;
+    &::after {
+      position: absolute;
+      top: 0;
+      left: calc(100vw / 3);
+      content: '';
+      width: calc(100vw / 6);
+      height: 100%;
+      background: black;
+      clip-path: polygon(
+        100% 0%,
+        0% 50%,
+        0% 100%,
+        0% 50%,
+        100% 100%,
+        100% 100%,
+        100% 0%
+      );
+    }
+  }
+  ul {
+    padding: 0;
+  }
+  li {
+    a {
+      padding: calc((33vw - 1.5em) / 2) 0;
+    }
+    &:nth-child(1) {
+      background: red;
+    }
+    &:nth-child(2) {
+      background: blue;
+    }
+    &:nth-child(3) {
+      background: green;
+    }
+  }
+}

@@ -1,0 +1,26 @@
+header {
+  width: 100vw;
+  background-color: black;
+  color: white;
+  h1,
+  h2 {
+    padding-left: 10vw;
+  }
+  h1 {
+    margin-top: 3rem;
+    padding-bottom: 1.5rem;
+  }
+  h2 {
+    margin-bottom: 3rem;
+  }
+}
+
+.logo {
+  &:last-child {
+    position: relative;
+    bottom: -2px;
+    svg {
+      transform: scale(-1);
+    }
+  }
+}
