@@ -71,6 +71,10 @@ const imageShortcode = async (
 };
 
 module.exports = function (eleventyConfig) {
+  // Watch CSS files for changes
+  eleventyConfig.setBrowserSyncConfig({
+    files: './_site/css/**/*.css',
+  });
   // Copy `src/style.css` to `_site/style.css`
   eleventyConfig.addPassthroughCopy('src/style.css');
 
