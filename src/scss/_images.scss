@@ -1,5 +1,7 @@
 @use 'theme';
 
-.selfee {
-  filter: brightness(0.9) grayscale(25%);
+.snippet-image {
+  max-width: calc((100vw - 2em) / 3);
+  filter: brightness(0.9) grayscale(35%);
+  align-self: center;
 }

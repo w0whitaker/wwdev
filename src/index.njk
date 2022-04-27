@@ -7,25 +7,27 @@ pagination:
   alias: posts
 templateEngineOverride: njk, md
 ---
-{% snippet %}
+<div class="container">
+  <h2>about me</h2>
+  {% snippet %}
 
-###  about me
+  Circle *back* Safari `gradle` frame rate sudo JSX JSON consensus Edge. Spaghetti code promise private reactive Ruby i presenter lang reflection Vue.
 
-Circle *back* Safari `gradle` frame rate sudo JSX JSON consensus Edge. Spaghetti code promise private reactive Ruby i presenter lang reflection Vue.
+  {% image "/images/self.jpg", "a picture of me", "snippet-image" %}
 
-{% image "/images/self.jpg", "a picture of me", "snippet-image" %}
+  Contributor serverless model DAG i elixir commit constant class hardcoded. Cowboy coding sudo cross-post child concurrent AI ELF GraphQL vaporware.
 
-Contributor serverless model DAG i elixir commit constant class hardcoded. Cowboy coding sudo cross-post child concurrent AI ELF GraphQL vaporware.
+  {% endsnippet %}
+</div>
 
-{% endsnippet %}
+<div class="container">
+  <h2>recent posts</h2>
+  {% snippet %}
 
-
-<h2>posts</h2>
-<ul>
   {% for post in posts %}
-  <li>
-    <a href="{{ post.url }}">{{ post.data.title }}</a>
-    <p>{{ post.data.excerpt }}</p>
-  </li>
+  - [{{ post.data.title }}]({{ post.url }})
+  {{ post.data.excerpt }}
   {% endfor %}
-</ul>
+
+  {% endsnippet %}
+</div>
