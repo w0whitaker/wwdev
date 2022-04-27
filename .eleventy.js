@@ -1,4 +1,6 @@
 const markdownIt = require('markdown-it');
+const markdownItCustom = require('./src/js/markdownCustom.js');
+const snippet = require('./src/js/shortcodes.js');
 const Image = require('@11ty/eleventy-img');
 const path = require('path');
 const classNames = require('classnames');
@@ -89,13 +91,19 @@ module.exports = function (eleventyConfig) {
     excerpt_separator: '<!-- excerpt -->',
   });
 
-  // Parse Markdown properly in excerpts
+  // // Parse Markdown properly in excerpts
   eleventyConfig.addFilter('md', function (content = '') {
     return markdownIt({ html: true }).render(content);
   });
 
   // Image shortcode https://www.aleksandrhovhannisyan.com/blog/eleventy-image-lazy-loading/
   eleventyConfig.addNunjucksAsyncShortcode('image', imageShortcode);
+
+  eleventyConfig.setLibrary('md', markdownItCustom);
+
+  eleventyConfig.addPairedShortcode('snippet', function (content) {
+    return snippet(content);
+  });
 
   // Set custom directories for input, output, includes, and data
   return {
