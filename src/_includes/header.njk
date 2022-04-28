@@ -1,9 +1,6 @@
 {% set currentUrl = page.url %}
 
 <header>
-  {% if currentUrl === '/' %}
-    {% include 'logo.njk' %}
-  {% endif %}
     <h1>{{ meta.siteName }}</h1>
   {% if currentUrl === '/' %}
     <h2 >{{ meta.siteDescription }}</h2>

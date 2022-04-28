@@ -1,3 +1,6 @@
+@use '_theme';
+@use '_utilities';
+
 @font-face {
   font-family: Alata;
   src: url('/fonts/Alata-Regular.ttf') format('ttf');
@@ -16,13 +19,15 @@ body {
 }
 
 :is(h1, h2, h3, h4, h5, h6, footer) {
+  @extend %pl1;
   font-family: 'Alata', sans-serif;
 }
 
 .container h2 {
   font-size: 1em;
-  padding-left: 1em;
-  margin: 2rem 0 1rem;
+  &:not(header h2) {
+    margin: 2rem 0 1rem;
+  }
 }
 
 ul li {

@@ -1,19 +1,17 @@
+@use '_utilities';
+
 .container {
   display: flex;
   flex-wrap: wrap;
 }
 
-%square {
-  display: block;
-}
-
 .sm-square {
-  @extend %square;
+  @extend %db;
   padding: 0.5rem;
 }
 
 .big-square {
-  @extend %square;
+  @extend %db;
   width: calc(100vw / 3);
   padding: calc(((100vw / 3) - 1.5em) / 2) 0;
 }

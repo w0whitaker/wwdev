@@ -1,11 +1,8 @@
 @use 'theme';
 
 nav {
-  a,
-  li a {
-    @include theme.nav-link;
-  }
   a {
+    @include theme.nav-link;
     align-self: flex-start;
     order: 2;
     padding: calc((33vw - 1.5em) / 4) 0;
@@ -18,7 +15,7 @@ nav {
       top: 0;
       left: calc(100vw / 3);
       content: '';
-      width: calc(100vw / 6);
+      width: calc(100vw / 3);
       height: 100%;
       background: black;
       clip-path: polygon(
