@@ -1,14 +1,16 @@
 @use 'theme';
+@use 'utilities';
 
 nav {
   a {
-    @include theme.nav-link;
+    @include utilities.nav-link;
+    color: theme.color('near-white');
     align-self: flex-start;
     order: 2;
     padding: calc((33vw - 1.5em) / 4) 0;
   }
   a:not(ul a) {
-    background: black;
+    background: theme.color('near-black');
     position: relative;
     &::after {
       position: absolute;
@@ -17,7 +19,7 @@ nav {
       content: '';
       width: calc(100vw / 3);
       height: 100%;
-      background: black;
+      background: theme.color('near-black');
       clip-path: polygon(
         100% 0%,
         0% 50%,
@@ -34,13 +36,13 @@ nav {
   }
   li {
     &:nth-child(1) {
-      background: red;
+      background: theme.color('primary');
     }
     &:nth-child(2) {
-      background: blue;
+      background: theme.color('primary-alt');
     }
     &:nth-child(3) {
-      background: green;
+      background: theme.color('secondary');
     }
   }
 }

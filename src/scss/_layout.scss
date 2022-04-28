@@ -1,4 +1,9 @@
-@use '_utilities';
+@use 'theme';
+@use 'utilities';
+
+body {
+  background-color: theme.color('background');
+}
 
 .container {
   display: flex;

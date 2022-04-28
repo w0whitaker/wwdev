@@ -1,3 +1,9 @@
+@mixin nav-link {
+  text-decoration: none;
+  text-align: center;
+  font-family: 'Alata';
+}
+
 %pl1 {
   padding-left: 1rem;
 }

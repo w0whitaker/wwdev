@@ -1,7 +1,10 @@
+@use '_theme';
+@use '_utilities';
+
 header {
   width: 100vw;
-  background-color: black;
-  color: white;
+  background-color: theme.color('near-black');
+  color: theme.color('near-white');
   h1 {
     margin-top: 3rem;
     padding-bottom: 1.5rem;
@@ -16,5 +19,37 @@ header {
   bottom: -2px;
   svg {
     transform: scaleY(-1);
+    .a59e287d-dd79-418f-945e-2be028e1ba6d,
+    .ad545896-08cc-4c2d-b57f-15bf54eabd82,
+    .ae6fb684-09d5-4a7f-96e2-d605cc3c8b83,
+    .b5e7dde8-a9bd-4897-9e91-53840cca5e83,
+    .bb8b4b59-a8c9-46a7-b9cf-d16a6137107f,
+    .e97b6a6e-dda7-4481-9356-51b10ae28332,
+    .f855ad9b-c522-4cf5-b881-807058c6d2b0 {
+      fill: theme.color('near-white');
+      stroke-miterlimit: 10;
+      stroke-width: 16px;
+    }
+    .f855ad9b-c522-4cf5-b881-807058c6d2b0 {
+      stroke: theme.color('near-white');
+    }
+    .ae6fb684-09d5-4a7f-96e2-d605cc3c8b83 {
+      stroke: theme.color('red');
+    }
+    .bb8b4b59-a8c9-46a7-b9cf-d16a6137107f {
+      stroke: theme.color('yellow-dark');
+    }
+    .ad545896-08cc-4c2d-b57f-15bf54eabd82 {
+      stroke: theme.color('yellow-light');
+    }
+    .e97b6a6e-dda7-4481-9356-51b10ae28332 {
+      stroke: theme.$green;
+    }
+    .b5e7dde8-a9bd-4897-9e91-53840cca5e83 {
+      stroke: theme.color('blue');
+    }
+    .a59e287d-dd79-418f-945e-2be028e1ba6d {
+      stroke: theme.color('red-dark');
+    }
   }
 }
