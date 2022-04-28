@@ -9,7 +9,7 @@
         <div class="container">
           {% for link in collections.pages %}
           <li id="{{ link.data.title | lower }}">
-            <a href="{{ link.url }}">{{ link.data.title }}</a>
+            <a href="{{ link.url }}" class="big-square">{{ link.data.title }}</a>
           </li>
           {%- endfor %}
         </div>

@@ -3,7 +3,6 @@
 nav {
   a,
   li a {
-    width: calc(100vw / 3);
     @include theme.nav-link;
   }
   a {
@@ -37,9 +36,6 @@ nav {
     padding: 0;
   }
   li {
-    a {
-      padding: calc((33vw - 1.5em) / 2) 0;
-    }
     &:nth-child(1) {
       background: red;
     }

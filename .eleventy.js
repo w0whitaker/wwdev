@@ -4,6 +4,7 @@ const snippet = require('./src/js/shortcodes.js');
 const Image = require('@11ty/eleventy-img');
 const path = require('path');
 const classNames = require('classnames');
+const svgSprite = require('eleventy-plugin-svg-sprite');
 // const outdent = require("outdent");
 
 const imageShortcode = async (
@@ -96,13 +97,17 @@ module.exports = function (eleventyConfig) {
     return markdownIt({ html: true }).render(content);
   });
 
+  eleventyConfig.setLibrary('md', markdownItCustom);
+
   // Image shortcode https://www.aleksandrhovhannisyan.com/blog/eleventy-image-lazy-loading/
   eleventyConfig.addNunjucksAsyncShortcode('image', imageShortcode);
 
-  eleventyConfig.setLibrary('md', markdownItCustom);
-
   eleventyConfig.addPairedShortcode('snippet', function (content) {
     return snippet(content);
+  });
+
+  eleventyConfig.addPlugin(svgSprite, {
+    path: './src/images/svg',
   });
 
   // Set custom directories for input, output, includes, and data

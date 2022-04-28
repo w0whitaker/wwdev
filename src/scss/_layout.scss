@@ -3,7 +3,27 @@
   flex-wrap: wrap;
 }
 
+%square {
+  display: block;
+}
+
+.sm-square {
+  @extend %square;
+  padding: 0.5rem;
+}
+
+.big-square {
+  @extend %square;
+  width: calc(100vw / 3);
+  padding: calc(((100vw / 3) - 1.5em) / 2) 0;
+}
+
 section {
   padding: 1em;
   max-width: 100vw;
+}
+
+.footer-links,
+.container > ul {
+  flex: 1 0 100%;
 }

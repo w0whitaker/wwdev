@@ -15,7 +15,7 @@ body {
   font-family: 'Quattrocento', serif;
 }
 
-:is(h1, h2, h3, h4, h5, h6) {
+:is(h1, h2, h3, h4, h5, h6, footer) {
   font-family: 'Alata', sans-serif;
 }
 
@@ -27,4 +27,8 @@ body {
 
 ul li {
   list-style: none;
+}
+
+footer {
+  font-size: 0.875em;
 }

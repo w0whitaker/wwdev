@@ -1,0 +1,32 @@
+@use 'theme';
+
+footer {
+  margin-top: 1rem;
+  > .container {
+    justify-content: space-around;
+    > * {
+      margin-top: 1rem;
+    }
+  }
+  ul {
+    padding: 0;
+    li {
+      flex: 1;
+    }
+  }
+  p {
+    padding-bottom: 1rem;
+  }
+  .footer-links {
+    justify-content: center;
+    a {
+      line-height: 24px;
+      align-self: center;
+    }
+  }
+  .social-icon {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+  }
+}
