@@ -1,10 +1,8 @@
 ---
-layout: layout.njk
+layout: page.njk
 ---
-{% include 'sitenav.njk' %}
 
-<main>
-  <h3>{{ title }}</h3>
-  {% image "/images/dog.jpeg", "a picture of a dog", "post-image" %}
-  <p>{{ content | safe }}</p>
-</main>
+<h3>{{ title }}</h3>
+<div class="container">
+  <article>{{ content | safe }}</article>
+</div>

@@ -5,6 +5,7 @@ const Image = require('@11ty/eleventy-img');
 const path = require('path');
 const classNames = require('classnames');
 const svgSprite = require('eleventy-plugin-svg-sprite');
+const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight');
 // const outdent = require("outdent");
 
 const imageShortcode = async (
@@ -80,6 +81,9 @@ module.exports = function (eleventyConfig) {
   });
   // Copy `src/style.css` to `_site/style.css`
   eleventyConfig.addPassthroughCopy('src/style.css');
+
+  // Plugins
+  eleventyConfig.addPlugin(syntaxHighlight);
 
   // Custom collections
   eleventyConfig.addCollection('pages', function (collection) {
