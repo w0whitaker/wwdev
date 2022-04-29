@@ -21,11 +21,13 @@ templateEngineOverride: njk, md
 <div class="container">
   <h2>recent posts</h2>
   {% snippet %}
-
+  {% if posts %}
   {% for post in posts %}
   - [{{ post.data.title }}]({{ post.url }})
   {{ post.data.excerpt }}
   {% endfor %}
-
+  {% else %}
+  No posts yet!
+  {% endif %}
   {% endsnippet %}
 </div>
