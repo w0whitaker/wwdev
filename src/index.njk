@@ -24,6 +24,7 @@ templateEngineOverride: njk, md
   {% if posts %}
   {% for post in posts %}
   - [{{ post.data.title }}]({{ post.url }})
+
   {{ post.data.excerpt }}
   {% endfor %}
   {% else %}
