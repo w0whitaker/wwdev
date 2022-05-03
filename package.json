@@ -25,7 +25,8 @@
   "homepage": "https://github.com/w0whitaker/wwdev#readme",
   "dependencies": {
     "@11ty/eleventy": "^1.0.1",
-    "classnames": "^2.3.1"
+    "classnames": "^2.3.1",
+    "eleventy-plugin-footnotes": "^0.10.0"
   },
   "devDependencies": {
     "@11ty/eleventy-img": "^2.0.0",

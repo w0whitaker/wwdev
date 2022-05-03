@@ -1,7 +1,9 @@
 ---
 title: 'ephemeral pattern generator'
-excerpt: 'Playing with event listeners in JavaScript, I ended up making something completely useless.'
+excerpt: 'Wanting to learn about event listeners in JavaScript, I ended up making something completely useless.'
 ---
+
+<section>
 
 Imagine you have a dog. You'd like the dog to raise their paw and touch your hand whenever you say "shake". You'll have to teach the dog this behavior, but with enough patience (and treats!), eventually the dog will learn. You have now taught your dog (the target) to listen for a command (the event) and raise its paw (the action).
 
@@ -9,11 +11,15 @@ That's essentially what an event listener is. Instead of all that training thoug
 
 I wanted to practice using event handlers, so I built a little [app](https://ephemeral-pattern-generator.netlify.app/) that adds SVG glyphs to the screen. Once added, the color of the glyphs can be changed by selecting one and clicking on a button. Not particularly useful, maybe, but kind of fun.
 
-## The HTML
+</section>
+
+<section>
+
+### The HTML
 
 The HTML is pretty straightforward, so I'll just run through it quickly. CSS is important to the way the app works, but it's not the main focus of this post, so I'm going to skip over most of it. You can find it on the project's [github](https://github.com/w0whitaker/epg/blob/main/_site/style.css) page.
 
-### The output
+#### The output
 
 There are two glyphs that the user can add to the screen.
 
@@ -29,7 +35,7 @@ The first thing we need is a place to display the glyphs once they get added.
 </section>
 ```
 
-This is just an empty div for now, but as we add glyphs, it will get filled with `<svg>` elements.<!-- get rid of "we" -->
+This is just an empty div for now, but as glyphs are added, it will get filled with `<svg>` elements.
 
 ```html
 <div id="glyph-container">
@@ -59,7 +65,7 @@ Because I wanted the display area to be present visually with or without any gly
 }
 ```
 
-### The buttons
+#### The buttons
 
 Next up are some buttons to add glyphs and eventually change their color.
 
@@ -79,13 +85,16 @@ Next up are some buttons to add glyphs and eventually change their color.
 </div>
 ```
 
-Nothing too special here, except that I use IDs so that I'll be able to reference the buttons easily in the Javascript. Note that for the "add" buttons, I'm using an SVG of the relevant glyph as the content of the button. While that may indicate visually what the button is for, it won't do much for people using screen readers. In practice, there should be something to describe what the button does that a screen reader will pick up.[^1]
+{% assign screenreader_issue = "[MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#accessibility_concerns) has a bit about buttons and accessibility, and there's a good [article](https://www.smashingmagazine.com/2021/05/accessible-svg-patterns-comparison/#basic-alternative-descriptions-using-the-svg-tag) by [Carrie Fisher](https://cariefisher.com/) on [Smashing Magazine](https://www.smashingmagazine.com/2021/05/accessible-svg-patterns-comparison/) that goes over some options for making SVGs more accessible as well." | md %}
+Nothing too special here, except that I use IDs so that I'll be able to reference the buttons easily in the Javascript. Note that for the "add" buttons, I'm using an SVG of the relevant glyph as the content of the button. While that may indicate visually what the button is for, it won't do much for people using screen readers. In practice, there should be something to describe what the button does that a screen reader will pick {% footnoteref "screenreader-issue" screenreader_issue %}up{% endfootnoteref %}.
 
-[^1]: [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#accessibility_concerns) has a bit about buttons and accessibility, and there's a good [article](https://www.smashingmagazine.com/2021/05/accessible-svg-patterns-comparison/#basic-alternative-descriptions-using-the-svg-tag) by [Carrie Fisher](https://cariefisher.com/) on [Smashing Magazine](https://www.smashingmagazine.com/2021/05/accessible-svg-patterns-comparison/) that goes over some options for making SVGs more accessible as well.
+</section>
 
-## The Javascript
+<section>
 
-### A few definitions
+### The Javascript
+
+#### A few definitions
 
 To start with, I'm going to define a few things by declaring some variables. These use `const` because I don't want the values to change.
 
@@ -105,17 +114,17 @@ const glyphR = '<svg class="glyph">...</svg>';
 const colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
 ```
 
-I use `document.getElementById()` to reference the "add" buttons and the `<div>` that will act as the display area for the glyphs. Because there will be more than one glyph on the screen, I can't use an ID, so I'm using `document.getElementsByClassName()` to collect the glyphs.[^2]
-
-[^2]: There's an important difference between the two, in that `.getElementsByClassName()` returns an ["array-like object"](https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementsByClassName) rather than a single object. This makes sense, as it will be returning more than one element, and it will have implications later on when it comes time to add event listeners to the glyphs.
+{% assign get_by_id_vs_class = "There's an important difference between the two, in that `.getElementsByClassName()` returns an &#8220;[array-like object](https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementsByClassName)&#8221; rather than a single object. This makes sense, as it will be returning more than one element, and it will have implications later on when it comes time to add event listeners to the glyphs." | md %}
+I use `document.getElementById()` to reference the "add" buttons and the `<div>` that will act as the display area for the glyphs. Because there will be more than one glyph on the screen, I can't use an ID, so I'm using {% footnoteref "get-by-id-vs-class" get_by_id_vs_class %} `document.getElementsByClassName()`{% endfootnoteref %} to collect the glyphs.
 
 Next, I declare a couple of variables for the glyphs themselves, which will make working with the (long, messy) SVG code easier.
 
 Finally, I create an array that will hold the colors to be used. You may have noticed that I didn't declare variables for these "color" buttons; I'll be doing that later and using the colors in this array to name them.
 
-### The `init()` function
+#### The `init()` function
 
-The code for the app's behavior will be wrapped in a function, which will be called once the page has loaded.[^3]
+{% assign dom_content_vs_load = "It would also be possible to add this event listener to the `document` object, and listen for the `'DOMContentLoaded'` event, which fires as soon as the HTML is loaded. The `'load'` event, on the other hand, waits until _all_ of the page's resources have loaded. Given that this is a pretty minimal app, perhaps it doesn't make much difference which one is used. I've opted to use the `'load'` event, figuring that if for some reason the CSS were delayed, for example, it wouldn't make much sense for the user to start clicking things." | md %}
+The code for the app's behavior will be wrapped in a function, which will be called once the page has {% footnoteref "dom-content-vs-load" dom_content_vs_load %}loaded{% endfootnoteref %}.
 
 ```javascript
 function init() {
@@ -127,13 +136,11 @@ window.addEventListener('load', () => {
 });
 ```
 
-[^3]: It would also be possible to add this event listener to the `document` object, and listen for the `'DOMContentLoaded'` event, which fires as soon as the HTML is loaded. The `'load'` event, on the other hand, waits until _all_ of the page's resources have loaded. Given that this is a pretty minimal app, perhaps it doesn't make much difference which one is used. I've opted to use the `'load'` event, figuring that if for some reason the CSS were delayed, for example, it wouldn't make much sense for the user to start clicking things.
-
-### Event listeners on buttons
+#### Event listeners on buttons
 
 There are two sets of buttons that will need event listeners, those that add glyphs to the screen and those that pick a color.
 
-#### Adding glyphs
+##### Adding glyphs
 
 Adding the glyphs to the screen is pretty straightforward. Earlier, I declared variables which create a reference to the appropriate button. Each of the two "add" buttons gets an event listener, which is set up to respond to a `'click'` event. Every time one of those two buttons is clicked, a function that adds a glyph to the `displayArea` using `insertAdjacentHTML()` will run.
 
@@ -155,7 +162,7 @@ function glyphButtons() {
 
 The first argument [`insertAdjacentHTML()`](https://developer.mozilla.org/en-US/docs/Web/API/Element/insertAdjacentHTML) takes tells it where to put the HTML in relation to the element specified; in this case, it will be placed just after the opening `<div>` tag of the `displayArea`. The second is the HTML to add, here it's stored in one of the variables that I declared earlier.
 
-#### Changing colors
+##### Changing colors
 
 Setting up event listeners on the "color" buttons is going to follow the same pattern as the "add" buttons.
 
@@ -174,7 +181,7 @@ There are a couple of important differences, however. Each of the color buttons 
 
 The actual code for the event listener is going to be a little more complicated than it was for the "add" buttons, so I'm going to pause here and take a look at what the Javascript looks like at this point.
 
-#### The code so far
+##### The code so far
 
 ```javascript
 const btnAddL = document.getElementById('addL');
@@ -227,7 +234,7 @@ window.addEventListener('load', (event) => {
 
 Inside the `init()` function are two other functions, `glyphButtons()` and `colorButtons()`, both of which get called at the end of `init()`.
 
-### Event listeners on the glyphs
+#### Event listeners on the glyphs
 
 In order to change a glyph's color, there needs to be a way to select it. For now, I'm going to declare an empty variable that will eventually "hold" the selected glyph. I'll put it at the top of the `init()` function, so that it can be accessed from the other functions within `init()`. Note that I'm using `let` so that it's value can be changed as needed.
 
@@ -235,7 +242,7 @@ In order to change a glyph's color, there needs to be a way to select it. For no
 let selectedGlyph = '';
 ```
 
-#### The `MutationObserver`
+##### The `MutationObserver`
 
 When the page loads, there won't be any glyphs to select. Adding the actual event listener can go in a function easily enough, but there needs to be a way to call that function whenever a glyph is added. It turns out that Javascript has something called `MutationObserver` that can "watch" part of the page and do something when it changes.
 
@@ -252,7 +259,7 @@ observer.observe(displayArea, {
 
 First, a new `MutationObserver()` is declared with the variable `observer`, which then uses the method `observe` to point the observer to the `displayArea`. The options `subtree` and `childList` tell the observer to watch all the child nodes of `displayArea` for changes.
 
-#### Adding the listener
+##### Adding the listener
 
 With the `MutationObserver` in place, an event listener can now be attached to each glyph as it gets added. This will require looping over the elements that have been stored in the variable `glyphs`.
 
@@ -289,7 +296,7 @@ function glyphListener() {
 }
 ```
 
-### Changing glyph colors
+#### Changing glyph colors
 
 In the same way that `selectedGlyph` was initialized as an empty variable so that it could be reassigned as needed, a variable called `selectedColor` will be declared that can "hold" the color the user selects.
 
@@ -366,6 +373,8 @@ function colorButtons() {
   }
 }
 ```
+
+<section>
 
 ### conclusion
 
@@ -467,3 +476,7 @@ window.addEventListener('load', () => {
 There are several features I'd like to add at some point, like the ability to delete glyphs, and limit the total number of glyphs to what fits in the display. Maybe even some animation! But that's for another day.
 
 Thanks for reading!
+
+</section>
+
+{% footnotes %}
