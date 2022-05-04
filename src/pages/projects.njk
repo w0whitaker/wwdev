@@ -5,9 +5,6 @@ title: projects
 <h2>projects</h2>
 <ul>
   {% for project in collections.projects %}
-  {{
-    project | log
-  }}
   <li>
     <article>
       <header>
@@ -16,6 +13,9 @@ title: projects
         </h3>
         <p>{{ project.data.excerpt }}</p>
       </header>
+      {% if project.data.screenshot %}
+        {% image project.data.screenshot, project.data.alt %}
+      {% endif %}
       {{ project.templateContent | safe }}
     </article>
   </li>

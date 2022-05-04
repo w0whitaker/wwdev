@@ -1,6 +1,9 @@
 ---
-title: "wedding site"
-excerpt: "dependency injection inheritance spy lazy TL SRE"
+title: 'wedding site'
+excerpt: 'A website I made to handle RSVPs to our wedding, as well as to add needless levels of stress.'
+link: 'https://w0whitaker.github.io/wedding-site/'
+screenshot: '/images/wedding.png'
+alt: 'The homepage of our wedding site, with an RSVP form.'
 ---
 
 Resource frontend stack trace reactive package manager npm legacy code Reddit fullstack. Yarn yarn ELF virtual DOM heap sort UX. Concurrent tech debt Twitter TL compression Edge chmod hashtable. Minification little Bobby Tables Cloudfront reflog polemical thinking architecture.

@@ -1,6 +1,9 @@
 ---
-title: "william whitaker dot art"
-excerpt: "Slack transpile Github continuous integration contributor animation"
+title: 'william whitaker dot art'
+excerpt: 'A custom WordPress theme for showcasing my paintings.'
+link: 'https://williamwhitaker.art'
+screenshot: '/images/art.png'
+alt: 'A list view of some of my paintings.'
 ---
 
 Senior service worker ELF stack trace cache atomic design documentation driven void lazy eval. Merge sort bitwise operator polemical thinking legacy code ELF elixir concurrent API maintainable. Architecture views const lang Angular security little Bobby Tables FP pair programming.
