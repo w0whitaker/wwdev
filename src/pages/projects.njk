@@ -2,14 +2,22 @@
 title: projects
 ---
 
-<main>
-  <h2>projects</h2>
+<h2>projects</h2>
 <ul>
   {% for project in collections.projects %}
+  {{
+    project | log
+  }}
   <li>
-    <a href="{{ project.url }}">{{ project.data.title }}</a>
-    <p>{{ project.data.excerpt | md | safe }}</p>
+    <article>
+      <header>
+        <h3>
+          <a href="{{ project.data.link }}">{{ project.data.title }}</a>
+        </h3>
+        <p>{{ project.data.excerpt }}</p>
+      </header>
+      {{ project.templateContent | safe }}
+    </article>
   </li>
   {% endfor %}
 </ul>
-</main>

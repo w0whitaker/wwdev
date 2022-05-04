@@ -1,9 +1,11 @@
 ---
 layout: page.njk
 ---
-<main>
-  <article>
-    <h3>{{ title }}</h3>
-    {{ content | safe }}
-  </article>
-</main>
+<article>
+  <h3>
+    <a href="{{ link | safe }}">
+      {{ title }}
+    </a>
+  </h3>
+  {{ content | safe }}
+</article>

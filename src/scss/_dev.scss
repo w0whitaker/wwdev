@@ -1,0 +1,29 @@
+:is(h1, h2, h3, h4, h5, h6) {
+  position: relative;
+  &::after {
+    position: absolute;
+    top: 0;
+    left: -1.5rem;
+    color: red;
+  }
+}
+
+h2::after {
+  content: 'h2';
+}
+
+h3::after {
+  content: 'h3';
+}
+
+h4::after {
+  content: 'h4';
+}
+
+h5::after {
+  content: 'h5';
+}
+
+h6::after {
+  content: 'h6';
+}

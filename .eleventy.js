@@ -98,11 +98,6 @@ module.exports = function (eleventyConfig) {
     excerpt_separator: '<!-- excerpt -->',
   });
 
-  // // Parse Markdown properly in excerpts
-  eleventyConfig.addFilter('md', function (content = '') {
-    return markdownIt({ html: true }).render(content);
-  });
-
   eleventyConfig.setLibrary('md', markdownItCustom);
 
   // Image shortcode https://www.aleksandrhovhannisyan.com/blog/eleventy-image-lazy-loading/

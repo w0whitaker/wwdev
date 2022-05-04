@@ -1,7 +1,7 @@
 @use '_theme';
 @use '_utilities';
 
-header {
+#site-header {
   width: 100vw;
   background-color: theme.color('near-black');
   color: theme.color('near-white');

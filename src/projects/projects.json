@@ -1,6 +1,5 @@
 {
   "layout": "project.njk",
-  "tags": [
-    "projects"
-  ]
+  "tags": ["projects"],
+  "permalink": false
 }
