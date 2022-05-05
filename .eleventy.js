@@ -75,6 +75,11 @@ const imageShortcode = async (
   return picture;
 };
 
+// https://github.com/11ty/eleventy/issues/981#issuecomment-593397677
+function sortByNumber(a, b) {
+  return Number(a.data.order) - Number(b.data.order);
+}
+
 module.exports = function (eleventyConfig) {
   // Watch CSS files for changes
   eleventyConfig.setBrowserSyncConfig({
@@ -89,16 +94,14 @@ module.exports = function (eleventyConfig) {
 
   // Custom collections
   eleventyConfig.addCollection('pages', function (collection) {
-    return collection.getFilteredByGlob('src/pages/*.njk');
+    const pages = collection
+      .getFilteredByGlob('src/pages/*.njk')
+      .sort(sortByNumber);
+    return pages;
   });
 
-  // https://github.com/11ty/eleventy/issues/981#issuecomment-593397677
   eleventyConfig.addCollection('projects', function (collection) {
-    const projects = collection
-      .getFilteredByTag('projects')
-      .sort(function (a, b) {
-        return Number(a.data.order) - Number(b.data.order);
-      });
+    const projects = collection.getFilteredByTag('projects').sort(sortByNumber);
     return projects;
   });
 
