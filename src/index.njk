@@ -23,9 +23,9 @@ templateEngineOverride: njk, md
   {% snippet %}
   {% if posts %}
   {% for post in posts %}
-  - [{{ post.data.title }}]({{ post.url }})
-
-  {{ post.data.excerpt }}
+  - [{{ post.data.title }}]({{ post.url }})<br>
+      <time datetime="{{ post.date | isoDate }}">{{ post.date | humanDate }}</time><br>
+      {{ post.data.excerpt }}
   {% endfor %}
   {% else %}
   No posts yet!

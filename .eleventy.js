@@ -113,6 +113,20 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.setLibrary('md', markdownItCustom);
 
+  eleventyConfig.addFilter('isoDate', function (value) {
+    return value.toISOString();
+  });
+
+  eleventyConfig.addFilter('humanDate', function (value) {
+    let options = {
+      month: 'long',
+      day: 'numeric',
+      year: 'numeric',
+    };
+    let date = new Intl.DateTimeFormat('en-US', options).format(value);
+    return date;
+  });
+
   // Image shortcode https://www.aleksandrhovhannisyan.com/blog/eleventy-image-lazy-loading/
   eleventyConfig.addNunjucksAsyncShortcode('image', imageShortcode);
 
