@@ -4,6 +4,7 @@ excerpt: 'A simple app that makes use of event listeners and SVGs to create ever
 link: 'https://ephemeral-pattern-generator.netlify.app'
 screenshot: '/images/epg.png'
 alt: 'screenshot of the app'
+order: 1
 ---
 
 For more on how it works and how I made it, check out this blog [post](/epg.html).

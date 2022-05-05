@@ -89,7 +89,17 @@ module.exports = function (eleventyConfig) {
 
   // Custom collections
   eleventyConfig.addCollection('pages', function (collection) {
-    return collection.getFilteredByGlob('src/pages/*.njk').reverse();
+    return collection.getFilteredByGlob('src/pages/*.njk');
+  });
+
+  // https://github.com/11ty/eleventy/issues/981#issuecomment-593397677
+  eleventyConfig.addCollection('projects', function (collection) {
+    const projects = collection
+      .getFilteredByTag('projects')
+      .sort(function (a, b) {
+        return Number(a.data.order) - Number(b.data.order);
+      });
+    return projects;
   });
 
   // Front-matter parsing with gray-matter
