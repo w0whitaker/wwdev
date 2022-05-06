@@ -1,6 +1,6 @@
 ---
 title: 'ephemeral pattern generator'
-excerpt: 'Wanting to learn about event listeners in JavaScript, I ended up making something completely useless.'
+excerpt: 'Working with event listeners in JavaScript to manipulate the DOM.'
 ---
 
 <section>
