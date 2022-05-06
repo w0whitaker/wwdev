@@ -7,6 +7,7 @@ const classNames = require('classnames');
 const svgSprite = require('eleventy-plugin-svg-sprite');
 const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight');
 const footnotes = require('eleventy-plugin-footnotes');
+const eleventyNavigationPlugin = require('@11ty/eleventy-navigation');
 // const outdent = require("outdent");
 
 const imageShortcode = async (
@@ -91,6 +92,10 @@ module.exports = function (eleventyConfig) {
   // Plugins
   eleventyConfig.addPlugin(syntaxHighlight);
   eleventyConfig.addPlugin(footnotes);
+  eleventyConfig.addPlugin(eleventyNavigationPlugin);
+  eleventyConfig.addPlugin(svgSprite, {
+    path: './src/images/svg',
+  });
 
   // Custom collections
   eleventyConfig.addCollection('pages', function (collection) {
@@ -103,12 +108,6 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addCollection('projects', function (collection) {
     const projects = collection.getFilteredByTag('projects').sort(sortByNumber);
     return projects;
-  });
-
-  // Front-matter parsing with gray-matter
-  eleventyConfig.setFrontMatterParsingOptions({
-    excerpt: true,
-    excerpt_separator: '<!-- excerpt -->',
   });
 
   eleventyConfig.setLibrary('md', markdownItCustom);
@@ -132,10 +131,6 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addPairedShortcode('snippet', function (content) {
     return snippet(content);
-  });
-
-  eleventyConfig.addPlugin(svgSprite, {
-    path: './src/images/svg',
   });
 
   // Set custom directories for input, output, includes, and data
