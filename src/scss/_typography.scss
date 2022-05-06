@@ -23,6 +23,11 @@ body {
   font-family: 'Alata', sans-serif;
 }
 
+blockquote {
+  font-size: 0.875em;
+  font-style: italic;
+}
+
 .container h2 {
   font-size: 1em;
   &:not(header h2) {
