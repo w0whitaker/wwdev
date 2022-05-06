@@ -7,4 +7,6 @@ alt: 'A list view of some of my paintings.'
 order: 5
 ---
 
-Array junior TL uglify open source atomic design. Driver pattern React team-player lang free as in beer configuration. Middleware bike-shedding dependency injection devops mutation observer Reddit time-to-interactive brownfield elixir. Agile module one-size-fits-all approach design chmod const pull request concurrent container.
+True story: at the beginning of the pandemic, I decided that I was going to focus on making art, and not on making a website for that art. That lasted maybe a month&#8212;first I tried a managed site, got frustrated that I couldn't style it the way I wanted to, then tried a premium WordPress theme. That was fine, but kind of slow. So I ended up making this, the first custom WordPress theme that I _finished_.
+
+I've had many portfolio sites for my artwork over the years. The first (see below) was just HTML and CSS with a little bit of JavaScript. Since then, I've made versions using Drupal and Ruby on Rails. I'm currently working on a version that would use the existing WordPress installation as a headless CMS.
