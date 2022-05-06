@@ -7,4 +7,6 @@ alt: 'A grid showing the colors that make up the pieton color scheme.'
 order: 3
 ---
 
-Legacy test double graph TL module atomic design one-size-fits-all approach. Hacker News circle back compile team-player child developer commit Kubernetes. Hashtable Internet Explorer pull request flexbox open source node_modules mechanical keyboard module modern bundle domain. Accessibility test-driven frontend developer behavior-driven FP TL naming things XML.
+_Piéton_ is the French word for pedestrian. (I don't really know why I chose it as the starting point for a CSS color scheme, but sometimes word get stuck in my head, and one thing leads to another.) I had a few goals with this project: I wanted to make an accessible color scheme, and put it in easy-to-use utility classes; I wanted to make use of CSS Grid; and I wanted to publish it as an NPM package.
+
+I had a lot of fun doing this, although I've become less fond of the idea of utility classes as I've learned more about CSS, especially custom properties.
