@@ -1,4 +1,4 @@
-const markdownIt = require('markdown-it');
+// const markdownIt = require('markdown-it');
 const markdownItCustom = require('./src/js/markdownCustom.js');
 const snippet = require('./src/js/shortcodes.js');
 const Image = require('@11ty/eleventy-img');
@@ -9,6 +9,8 @@ const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight');
 const footnotes = require('eleventy-plugin-footnotes');
 const eleventyNavigationPlugin = require('@11ty/eleventy-navigation');
 // const outdent = require("outdent");
+
+require('dotenv').config();
 
 const imageShortcode = async (
   relativeSrc,
@@ -82,6 +84,9 @@ function sortByNumber(a, b) {
 }
 
 module.exports = function (eleventyConfig) {
+  // Load environment variables
+  eleventyConfig.addGlobalData('env', process.env);
+
   // Watch CSS files for changes
   eleventyConfig.setBrowserSyncConfig({
     files: './_site/css/**/*.css',

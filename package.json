@@ -26,6 +26,7 @@
   "dependencies": {
     "@11ty/eleventy": "^1.0.1",
     "classnames": "^2.3.1",
+    "dotenv": "^16.0.0",
     "eleventy-plugin-footnotes": "^0.10.0"
   },
   "devDependencies": {
