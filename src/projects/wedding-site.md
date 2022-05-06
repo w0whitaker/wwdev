@@ -7,4 +7,4 @@ alt: 'The homepage of our wedding site, with an RSVP form.'
 order: 6
 ---
 
-Legacy code yarn stack Medium post contribute npm. Composition over inheritance Agile instance brownfield lang strongly typing container remote first in first out. Configuration .NET convention compression junior ping val Chrome. CSS-in-JS FP mock websockets little Bobby Tables +1 f\*\*\* heap sort.
+I think this was the first site I made using modern tools like Gulp and Handlebars.
