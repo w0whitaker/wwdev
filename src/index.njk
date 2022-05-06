@@ -25,7 +25,7 @@ templateEngineOverride: njk, md
   {% for post in posts %}
   - [{{ post.data.title }}]({{ post.url }})<br>
       <time datetime="{{ post.date | isoDate }}">{{ post.date | humanDate }}</time><br>
-      {{ post.data.excerpt }}
+      <p>{{ post.data.excerpt }}</p>
   {% endfor %}
   {% else %}
   No posts yet!

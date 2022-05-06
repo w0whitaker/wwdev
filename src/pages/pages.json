@@ -1,7 +1,5 @@
 {
   "layout": "page.njk",
   "permalink": "/{{ page.fileSlug }}.html",
-  "tags": [
-    "pages"
-  ]
+  "tags": ["pages"]
 }
