@@ -8,20 +8,29 @@
   h1 {
     margin-top: 3rem;
     padding-bottom: 1.5rem;
+    @media screen and (min-width: 1024px) {
+      padding-bottom: 0;
+    }
   }
   h2 {
     margin-bottom: 3rem;
+  }
+  :is(h1, h2) {
+    flex: 1 0 100vw;
+    @media screen and (min-width: 1024px) {
+      flex: 1 0 33.3333vw;
+      margin-left: 8.333325vw;
+    }
   }
   @media screen and (min-width: 768px) {
     display: flex;
     .container {
       flex: 0 1 50%;
-    }
-    :is(h1, h2) {
-      flex: 1 0 100%;
-    }
-    .logo {
-      flex: 1;
+      align-items: stretch;
+      @media screen and (min-width: 1024px) {
+        flex: 1 0 33.3333vw;
+        align-items: center;
+      }
     }
   }
 }
@@ -63,5 +72,8 @@
     .a59e287d-dd79-418f-945e-2be028e1ba6d {
       stroke: theme.color('red-dark');
     }
+  }
+  @media screen and (min-width: 768px) {
+    flex: 1;
   }
 }
