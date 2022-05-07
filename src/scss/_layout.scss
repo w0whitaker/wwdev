@@ -35,6 +35,9 @@ article {
   @extend %db;
   width: calc(100vw / 3);
   padding: calc(((100vw / 3) - 1.5em) / 2) 0;
+  @media screen and (min-width: 768px) {
+    padding: clamp(58px, calc(((100vw / 3) - 1.5em) / 4), 79.33px) 0;
+  }
 }
 
 .footer-links,
