@@ -7,28 +7,32 @@ pagination:
   alias: posts
 templateEngineOverride: njk, md
 ---
-<div class="container">
-  <h2>about me</h2>
-  {% snippet %}
+<article>
+  <div class="container">
+    <h2>about me</h2>
+{% snippet %}
 
-  Hi! I'm a front-end developer who wants to help make the web the creative, inclusive space it was always meant to be.
+Hi! I'm a front-end developer who wants to help make the web the creative, inclusive space it was always meant to be.
 
-  {% image "/images/self.jpg", "a picture of me", "snippet-image" %}
+{% image "/images/self.jpg", "a picture of me", "snippet-image" %}
 
-  {% endsnippet %}
-</div>
+{% endsnippet %}
+  </div>
+</article>
 
-<div class="container">
-  <h2>recent posts</h2>
-  {% snippet %}
-  {% if posts %}
-  {% for post in posts %}
-  - [{{ post.data.title }}]({{ post.url }})<br>
-      <time datetime="{{ post.date | isoDate }}">{{ post.date | humanDate }}</time><br>
-      <p>{{ post.data.excerpt }}</p>
-  {% endfor %}
-  {% else %}
-  No posts yet!
-  {% endif %}
-  {% endsnippet %}
-</div>
+<article>
+  <div class="container">
+    <h2>recent posts</h2>
+{% snippet %}
+{% if posts %}
+{% for post in posts %}
+- [{{ post.data.title }}]({{ post.url }})<br>
+    <time datetime="{{ post.date | isoDate }}">{{ post.date | humanDate }}</time><br>
+    <p>{{ post.data.excerpt }}</p>
+{% endfor %}
+{% else %}
+No posts yet!
+{% endif %}
+{% endsnippet %}
+  </div>
+</article>
