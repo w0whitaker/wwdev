@@ -5,30 +5,23 @@
   width: 100vw;
   background-color: theme.color('near-black');
   color: theme.color('near-white');
+  :is(h1, h2) {
+    flex: 1 0 100%;
+  }
   h1 {
-    margin-top: 3rem;
     align-self: flex-end;
   }
-  :is(h1, h2) {
-    flex: 1 0 100vw;
-    @media screen and (min-width: 1024px) {
-      flex: 1 0 33.3333vw;
-      margin-left: 8.333325vw;
+  .container {
+    padding: 8.333325vw;
+    @media screen and (min-width: 768px) {
+      padding: 0 0 0 8.333325vw;
     }
   }
   @media screen and (min-width: 768px) {
     display: flex;
+    justify-content: space-between;
     .container {
-      flex: 0 1 50vw;
-      @media screen and (min-width: 1024px) {
-        flex: 1 0 25vw;
-      }
-    }
-  }
-  > .container {
-    margin-bottom: 3rem;
-    @media screen and (min-width: 768px) {
-      margin-bottom: 0;
+      flex: 1;
     }
   }
 }
@@ -72,6 +65,6 @@
     }
   }
   @media screen and (min-width: 768px) {
-    flex: 1;
+    flex: 0 1 33.333333vw;
   }
 }
