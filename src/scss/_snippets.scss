@@ -3,7 +3,7 @@
 
 .snippet {
   background: theme.color('gray-light');
-  padding: 10vw 1em 5vw;
+  padding: 10vw 8.333325vw 5vw;
 
   p {
     &:nth-of-type(1) {
@@ -12,5 +12,8 @@
     &:nth-of-type(2) {
       flex: 1 0 100%;
     }
+  }
+  h4 {
+    margin: 8.333325vw 0;
   }
 }

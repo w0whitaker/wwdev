@@ -46,8 +46,16 @@ blockquote {
 }
 
 .snippet {
+  h3 a {
+    text-decoration-skip-ink: none;
+    text-underline-offset: 0.5rem;
+    color: theme.color(primary);
+  }
   p {
     font-size: 2em;
+  }
+  time {
+    color: theme.color(secondary);
   }
 }
 
