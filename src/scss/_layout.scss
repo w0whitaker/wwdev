@@ -11,12 +11,16 @@ main {
       display: grid;
       grid-template-columns: [left-gutter] 8.333325vw [column-1] 1fr [right-gutter] 8.333325vw [end];
       @media screen and (min-width: 1024px) {
+        margin: 8.333325vw 0 4.1666625vw;
         grid-template-columns: [left-gutter] 8.333325vw [column-1] 1fr [center-gutter] 8.333325vw [column-2] 1fr [right-gutter] 8.333325vw;
+        grid-auto-rows: 1fr;
       }
     }
     article {
+      display: grid;
       grid-column: column-1;
       @media screen and (min-width: 1024px) {
+        grid-template-rows: 8rem 1fr;
         &:first-of-type {
           grid-column: column-1;
         }
@@ -51,7 +55,6 @@ article {
   display: flex;
   flex-wrap: wrap;
   h2:not(header h2) {
-    margin: 10vw 0 5vw;
     border-bottom: 0.125rem solid theme.color(text);
     @media screen and (min-width: 1024px) {
       margin-bottom: 0;

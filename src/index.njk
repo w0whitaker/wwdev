@@ -8,8 +8,7 @@ pagination:
 templateEngineOverride: njk, md
 ---
 <article>
-  <div class="container">
-    <h2>about me</h2>
+  <h2>about me</h2>
 {% snippet %}
 
 Hi! I'm a front-end developer who wants to help make the web the creative, inclusive space it was always meant to be.
@@ -17,12 +16,10 @@ Hi! I'm a front-end developer who wants to help make the web the creative, inclu
 {# {% image "/images/self.jpg", "a picture of me", "snippet-image" %} #}
 
 {% endsnippet %}
-  </div>
 </article>
 
 <article>
-  <div class="container">
-    <h2>recent posts</h2>
+  <h2>recent posts</h2>
 {% snippet %}
 {% if posts %}
 {% for post in posts %}
@@ -34,5 +31,4 @@ Hi! I'm a front-end developer who wants to help make the web the creative, inclu
 No posts yet!
 {% endif %}
 {% endsnippet %}
-  </div>
 </article>
