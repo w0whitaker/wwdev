@@ -34,11 +34,6 @@ h2 {
   @media screen and (min-width: 1440px) {
     font-size: calc(1vw + 2.5rem);
   }
-  &:not(header h2) {
-    @media screen and (min-width: 1024px) {
-      text-align: center;
-    }
-  }
 }
 
 nav a {
