@@ -12,8 +12,10 @@ title: typical
     <title>{{ title }}</title>
   </head>
   <body>
-    <div class="container">{{ content | safe }}</div>
-    {% include 'footer.njk' %}
+    <div class="container">
+      {{ content | safe }}
+      {% include 'footer.njk' %}
+    </div>
   </body>
   <script>{% include "src/js/index.js" %}</script>
 </html>
