@@ -20,7 +20,7 @@ main {
       display: grid;
       grid-column: column-1;
       @media screen and (min-width: 1024px) {
-        grid-template-rows: 8rem 1fr;
+        grid-template-rows: 8.333325vw 1fr;
         &:first-of-type {
           grid-column: column-1;
         }
@@ -56,8 +56,16 @@ article {
   flex-wrap: wrap;
   h2:not(header h2) {
     border-bottom: 0.125rem solid theme.color(text);
+    max-width: calc(100vw / 1.5);
+    padding: 8.333325vw 0 0 4.1666625vw;
+    @media screen and (min-width: 768px) {
+      max-width: calc((100vw / 1.5) - 8.333325vw);
+    }
     @media screen and (min-width: 1024px) {
+      padding: 0;
+      width: 100%;
       margin-bottom: 0;
+      align-self: end;
     }
   }
 }
