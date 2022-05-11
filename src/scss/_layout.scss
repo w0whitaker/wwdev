@@ -46,7 +46,6 @@ article {
 :is(h2:not(header h2), h5, h6, section) {
   @extend %pl-standard;
   @media screen and (min-width: 768px) {
-    padding: 0;
     flex-basis: 100%;
   }
 }
@@ -56,14 +55,11 @@ article {
   flex-wrap: wrap;
   h2:not(header h2) {
     border-bottom: 0.125rem solid theme.color(text);
-    max-width: calc(100% / 1.5);
     padding: 8.333325vw 0 0 4.1666625vw;
     @media screen and (min-width: 768px) {
-      max-width: calc((100% / 1.5) - 8.333325vw);
+      padding-left: 0;
     }
     @media screen and (min-width: 1024px) {
-      padding: 0;
-      width: 100%;
       margin-bottom: 0;
       align-self: end;
     }
@@ -77,9 +73,9 @@ article {
 
 .big-square {
   @extend %db;
-  padding: calc(((100% / 3) - 1.5em) / 2) 0;
+  padding: calc(((100vw / 3) - 1.5em) / 2) 0;
   @media screen and (min-width: 768px) {
-    padding: clamp(58px, calc(((100% / 3) - 1.5em) / 4), 79.33px) 0;
+    padding: clamp(58px, calc(((100vw / 3) - 1.5em) / 4), 79.33px) 0;
   }
 }
 
