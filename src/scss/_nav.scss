@@ -2,6 +2,7 @@
 @use 'utilities';
 
 nav {
+  width: 100%;
   a {
     @include utilities.nav-link;
     color: theme.color('near-white');
@@ -32,9 +33,11 @@ nav {
     }
   }
   ul {
+    width: 100%;
     padding: 0;
   }
   li {
+    flex: 1;
     &:nth-child(1) {
       background: theme.color('primary');
     }
