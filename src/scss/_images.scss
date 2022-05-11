@@ -2,7 +2,7 @@
 @use '_utilities';
 
 .snippet-image {
-  max-width: calc((100vw - 2em) / 3);
+  max-width: calc((100% - 2em) / 3);
   filter: brightness(0.9) grayscale(35%);
   img {
     border-radius: 16px;

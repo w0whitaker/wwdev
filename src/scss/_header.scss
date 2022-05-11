@@ -2,7 +2,7 @@
 @use '_utilities';
 
 #site-header {
-  width: 100vw;
+  width: 100%;
   background-color: theme.color('near-black');
   color: theme.color('near-white');
   :is(h1, h2) {

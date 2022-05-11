@@ -13,7 +13,7 @@ footer {
     align-items: center;
   }
   ul {
-    flex: 1 0 100vw;
+    flex: 1 0 100%;
     @media screen and (min-width: 1024px) {
       flex: inherit;
     }
