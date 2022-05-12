@@ -7,18 +7,17 @@ nav {
     @include utilities.nav-link;
     color: theme.color('near-white');
     align-self: flex-start;
-    order: 2;
     padding: calc((33vw - 1.5em) / 4) 0;
   }
-  a:not(ul a) {
+  #home > a {
     background: theme.color('near-black');
     position: relative;
     &::after {
       position: absolute;
       top: 0;
-      left: calc(100% / 3);
+      left: calc(100vw / 3);
       content: '';
-      width: calc(100% / 3);
+      width: calc(100vw / 3);
       height: 100%;
       background: theme.color('near-black');
       clip-path: polygon(
@@ -30,6 +29,14 @@ nav {
         100% 100%,
         100% 0%
       );
+      @media screen and (min-width: 768px) {
+        width: calc(100vw / 6);
+      }
+      @media screen and (min-width: 1024px) {
+        background: theme.color('near-white');
+        width: calc(100% / 3);
+        left: 0;
+      }
     }
   }
   ul {
@@ -37,7 +44,8 @@ nav {
     padding: 0;
   }
   li {
-    flex: 1;
+    flex: 1 0 calc(100% / 3);
+    max-width: calc(100% / 3);
     &:nth-child(1) {
       background: theme.color('primary');
     }
@@ -46,6 +54,9 @@ nav {
     }
     &:nth-child(3) {
       background: theme.color('secondary');
+    }
+    @media screen and (min-width: 1024px) {
+      flex: 1 0 calc(100% / 4);
     }
   }
 }

@@ -2,9 +2,6 @@
 
 <nav>
     <div class="container">
-      {% if currentUrl != '/' %}
-      <a href="/" class="big-square">home</a>
-      {% endif %}
       <ul>
         <div class="container">
           {% for link in collections.pages %}
@@ -16,6 +13,11 @@
             {% endif %}
           </li>
           {%- endfor %}
+          {% if currentUrl != '/' %}
+            <li id="home">
+              <a href="/" class="big-square">home</a>
+            </li>
+          {% endif %}
         </div>
       </ul>
     </div>

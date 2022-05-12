@@ -6,7 +6,7 @@ footer {
   background: theme.color('near-black');
   color: theme.color('near-white');
   padding: 10vw 0 5vw;
-  flex: 1;
+  flex: 1 0 100%;
   align-content: flex-end;
   > .container {
     justify-content: space-around;
@@ -19,12 +19,12 @@ footer {
     }
     li {
       flex: 1;
-      @media screen and (min-width: 768px) {
+      @media screen and (min-width: 1024px) {
         flex: inherit;
       }
     }
     > .container {
-      @media screen and (min-width: 768px) {
+      @media screen and (min-width: 1024px) {
         gap: clamp(1.125rem, 2vw + 2ch, 4rem);
         justify-content: center;
       }

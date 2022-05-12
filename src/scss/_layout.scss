@@ -3,6 +3,18 @@
 
 body {
   background-color: theme.color('background');
+  &.page-main {
+    > .container {
+      height: 100%;
+      display: grid;
+      grid-auto-rows: calc(8.333325vh + 2rem) calc((100vw / 1.5) + 1.5em) 2fr 0
+        1fr;
+    }
+    @media screen and (min-width: 768px) {
+      grid-auto-rows: calc(8.333325vh + 2rem) calc(((100vw / 1.5) - 1.5em) / 4)
+        2fr 0 1fr;
+    }
+  }
 }
 
 main {
@@ -27,6 +39,14 @@ main {
         &:nth-of-type(2) {
           grid-column: column-2;
         }
+      }
+    }
+  }
+  &.page-main {
+    @media screen and (min-width: 1024px) {
+      flex: 0 1 calc(100% / 4);
+      & > .container {
+        display: flex;
       }
     }
   }

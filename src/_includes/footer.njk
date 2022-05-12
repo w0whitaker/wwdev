@@ -1,5 +1,6 @@
+{% set currentUrl = page.url %}
 {% svgsprite %}
-<footer>
+<footer{% if currentUrl != '/' %} class="page-main"{% endif %}>
   <div class="container">
     <ul>
       <div class="container">
