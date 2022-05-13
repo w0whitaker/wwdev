@@ -5,17 +5,17 @@
       <ul>
         <div class="container">
           {% for link in collections.pages %}
-          <li id="{{ link.data.title | lower }}">
+          <li id="{{ link.data.title | lower }}" class="big-square">
             {% if link.data.title === "contact" %}
-              <a href="mailto:{{ env.EMAIL_ADDRESS }}" class="big-square">{{ link.data.title }}</a>
+              <a href="mailto:{{ env.EMAIL_ADDRESS }}">{{ link.data.title }}</a>
             {% else %}
-              <a href="{{ link.url }}" class="big-square">{{ link.data.title }}</a>
+              <a href="{{ link.url }}">{{ link.data.title }}</a>
             {% endif %}
           </li>
           {%- endfor %}
           {% if currentUrl != '/' %}
-            <li id="home">
-              <a href="/" class="big-square">home</a>
+            <li id="home" class="big-square">
+              <a href="/">home</a>
             </li>
           {% endif %}
         </div>

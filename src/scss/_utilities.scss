@@ -1,8 +1,5 @@
-@mixin nav-link {
-  text-decoration: none;
-  text-align: center;
-  font-family: 'Alata';
-}
+@use 'sass:map';
+@use 'sass:math';
 
 %pl1 {
   padding-left: 1rem;
@@ -14,4 +11,114 @@
 
 %db {
   display: block;
+}
+
+/*
+ * nav button sizing
+ * p = text padding
+ * t = line-height (not font-size!)
+ * x = 2p + t
+ * p = x - t / 2
+ *
+ * @320px viewport => line-height(1.5rem) = font-size(1.5rem)
+ * line-height should grow with font size (for nav only)
+ *
+ * square: height = width
+ * * * width = 1/3 visible screen area
+ * text: font size range
+ * padding: height - text / 2
+ */
+
+$vars: (
+  'rootTextSize': 16px,
+  'minTextSize': 1.5rem,
+  'maxTextSize': 36px,
+  'fluidTextSize': 2vw,
+  'relativeTextSize': 1rem,
+  'viewport-full': 100vw,
+  'visible-full': 100%,
+);
+
+@function visibleOneThird($width) {
+  @return calc($width / 3);
+}
+
+@function preferredTextSize($fluid, $relative) {
+  @return calc($fluid + $relative);
+}
+
+@function navTextSize($min, $pref, $max) {
+  @return clamp($min, $pref, $max);
+}
+
+@function navPadding($height, $text) {
+  /*
+   * if $height is a percentage,
+   * it's going to be a percentage of
+   * its parent(<li>)
+   */
+  @return calc(($height - $text) / 2);
+}
+
+@function navBarHeight($text, $padding) {
+  @return calc($text + ($padding * 2));
+}
+
+$values: (
+  'width': visibleOneThird(map.get($vars, 'visible-full')),
+  'text':
+    navTextSize(
+      map.get($vars, 'minTextSize'),
+      preferredTextSize(
+        map.get($vars, 'fluidTextSize'),
+        map.get($vars, 'relativeTextSize')
+      ),
+      map.get($vars, 'maxTextSize')
+    ),
+  'padding':
+    navPadding(
+      visibleOneThird(map.get($vars, 'visible-full')),
+      navTextSize(
+        map.get($vars, 'minTextSize'),
+        preferredTextSize(
+          map.get($vars, 'fluidTextSize'),
+          map.get($vars, 'relativeTextSize')
+        ),
+        map.get($vars, 'maxTextSize')
+      )
+    ),
+  'single':
+    navBarHeight(
+      navTextSize(
+        map.get($vars, 'minTextSize'),
+        preferredTextSize(
+          map.get($vars, 'fluidTextSize'),
+          map.get($vars, 'relativeTextSize')
+        ),
+        map.get($vars, 'maxTextSize')
+      ),
+      navPadding(
+        visibleOneThird(map.get($vars, 'visible-full')),
+        navTextSize(
+          map.get($vars, 'minTextSize'),
+          preferredTextSize(
+            map.get($vars, 'fluidTextSize'),
+            map.get($vars, 'relativeTextSize')
+          ),
+          map.get($vars, 'maxTextSize')
+        )
+      )
+    ),
+);
+
+$sizes: map-merge($vars, $values);
+
+@function size($key) {
+  @return map-get($sizes, $key);
+}
+
+@mixin nav-link {
+  text-decoration: none;
+  text-align: center;
+  font-family: 'Alata';
 }
