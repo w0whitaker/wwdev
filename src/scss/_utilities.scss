@@ -1,5 +1,4 @@
 @use 'sass:map';
-@use 'sass:math';
 
 %pl1 {
   padding-left: 1rem;
@@ -19,14 +18,6 @@
  * t = line-height (not font-size!)
  * x = 2p + t
  * p = x - t / 2
- *
- * @320px viewport => line-height(1.5rem) = font-size(1.5rem)
- * line-height should grow with font size (for nav only)
- *
- * square: height = width
- * * * width = 1/3 visible screen area
- * text: font size range
- * padding: height - text / 2
  */
 
 $vars: (
@@ -52,16 +43,7 @@ $vars: (
 }
 
 @function navPadding($height, $text) {
-  /*
-   * if $height is a percentage,
-   * it's going to be a percentage of
-   * its parent(<li>)
-   */
   @return calc(($height - $text) / 2);
-}
-
-@function navBarHeight($text, $padding) {
-  @return calc($text + ($padding * 2));
 }
 
 $values: (
@@ -85,28 +67,6 @@ $values: (
           map.get($vars, 'relativeTextSize')
         ),
         map.get($vars, 'maxTextSize')
-      )
-    ),
-  'single':
-    navBarHeight(
-      navTextSize(
-        map.get($vars, 'minTextSize'),
-        preferredTextSize(
-          map.get($vars, 'fluidTextSize'),
-          map.get($vars, 'relativeTextSize')
-        ),
-        map.get($vars, 'maxTextSize')
-      ),
-      navPadding(
-        visibleOneThird(map.get($vars, 'visible-full')),
-        navTextSize(
-          map.get($vars, 'minTextSize'),
-          preferredTextSize(
-            map.get($vars, 'fluidTextSize'),
-            map.get($vars, 'relativeTextSize')
-          ),
-          map.get($vars, 'maxTextSize')
-        )
       )
     ),
 );
