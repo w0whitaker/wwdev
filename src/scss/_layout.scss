@@ -103,8 +103,7 @@ article {
 
 .big-square {
   @extend %db;
-  @debug "padding: #{u.size('padding')}";
-  padding: u.size('padding') 0;
+  padding: u.navbar('squareBox') 0;
   text-align: center;
 }
 

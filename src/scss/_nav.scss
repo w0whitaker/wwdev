@@ -5,8 +5,8 @@ nav {
   width: 100%;
   a {
     @include u.nav-link;
-    font-size: u.size('text');
-    line-height: u.size('text');
+    font-size: u.navbar('text');
+    line-height: u.navbar('text');
     color: t.color('near-white');
   }
   ul {
@@ -14,7 +14,7 @@ nav {
     padding: 0;
   }
   li {
-    flex: 1 0 u.size('width');
+    flex: 1 0 u.navbar('boxWidth');
     max-width: calc(100% / 3);
     &:nth-child(1) {
       background: t.color('primary');

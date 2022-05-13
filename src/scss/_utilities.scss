@@ -30,7 +30,7 @@ $vars: (
   'visible-full': 100%,
 );
 
-@function visibleOneThird($width) {
+@function oneThirdVisible($width) {
   @return calc($width / 3);
 }
 
@@ -42,12 +42,12 @@ $vars: (
   @return clamp($min, $pref, $max);
 }
 
-@function navPadding($height, $text) {
+@function centerPadding($height, $text) {
   @return calc(($height - $text) / 2);
 }
 
-$values: (
-  'width': visibleOneThird(map.get($vars, 'visible-full')),
+$navbar-values: (
+  'boxWidth': oneThirdVisible(map.get($vars, 'visible-full')),
   'text':
     navTextSize(
       map.get($vars, 'minTextSize'),
@@ -57,9 +57,9 @@ $values: (
       ),
       map.get($vars, 'maxTextSize')
     ),
-  'padding':
-    navPadding(
-      visibleOneThird(map.get($vars, 'visible-full')),
+  'squareBox':
+    centerPadding(
+      oneThirdVisible(map.get($vars, 'visible-full')),
       navTextSize(
         map.get($vars, 'minTextSize'),
         preferredTextSize(
@@ -71,10 +71,10 @@ $values: (
     ),
 );
 
-$sizes: map-merge($vars, $values);
+$navbar: map-merge($vars, $navbar-values);
 
-@function size($key) {
-  @return map-get($sizes, $key);
+@function navbar($key) {
+  @return map-get($navbar, $key);
 }
 
 @mixin nav-link {
