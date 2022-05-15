@@ -1,5 +1,5 @@
 @use '_theme';
-@use '_utilities';
+@use '_utilities' as u;
 
 #site-header {
   width: 100%;
@@ -7,10 +7,20 @@
   color: theme.color('near-white');
   :is(h1, h2) {
     flex: 1 0 100%;
+    padding: min(2vw, 3rem) 0;
   }
   h1 {
     align-self: flex-end;
   }
+
+  h1 {
+    font-size: u.header('text-h1');
+  }
+
+  h2 {
+    font-size: u.header('text-h2');
+  }
+
   .container {
     padding: 8.333325vw;
     @media screen and (min-width: 768px) {

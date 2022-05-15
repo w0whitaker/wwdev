@@ -1,5 +1,17 @@
 @use 'sass:map';
 
+$vars: (
+  'rootTextSize': 16px,
+  'minTextSize-nav': 1.5rem,
+  'minTextSize-header': 2rem,
+  'maxTextSize-nav': 2.25rem,
+  'maxTextSize-header': 4.5rem,
+  'fluidTextSize': 2vw,
+  'relativeTextSize': 1rem,
+  'viewport-full': 100vw,
+  'visible-full': 100%,
+);
+
 %pl1 {
   padding-left: 1rem;
 }
@@ -12,6 +24,8 @@
   display: block;
 }
 
+// navbar stuff
+
 /*
  * nav button sizing
  * p = text padding
@@ -19,16 +33,6 @@
  * x = 2p + t
  * p = x - t / 2
  */
-
-$vars: (
-  'rootTextSize': 16px,
-  'minTextSize': 1.5rem,
-  'maxTextSize': 36px,
-  'fluidTextSize': 2vw,
-  'relativeTextSize': 1rem,
-  'viewport-full': 100vw,
-  'visible-full': 100%,
-);
 
 @function oneThirdVisible($width) {
   @return calc($width / 3);
@@ -52,29 +56,29 @@ $vars: (
 }
 
 $navbar-values: (
-  'boxWidth': oneThirdVisible(map.get($vars, 'visible-full')),
   'text':
     navTextSize(
-      map.get($vars, 'minTextSize'),
+      map.get($vars, 'minTextSize-nav'),
       preferredTextSize(
         map.get($vars, 'fluidTextSize'),
         map.get($vars, 'relativeTextSize')
       ),
-      map.get($vars, 'maxTextSize')
+      map.get($vars, 'maxTextSize-nav')
     ),
+  'boxWidth': oneThirdVisible(map.get($vars, 'visible-full')),
   'squareBox':
     squarePadding(
       oneThirdVisible(map.get($vars, 'visible-full')),
       navTextSize(
-        map.get($vars, 'minTextSize'),
+        map.get($vars, 'minTextSize-nav'),
         preferredTextSize(
           map.get($vars, 'fluidTextSize'),
           map.get($vars, 'relativeTextSize')
         ),
-        map.get($vars, 'maxTextSize')
+        map.get($vars, 'maxTextSize-nav')
       )
     ),
-  'landscapeBox': maxPadding(map.get($vars, 'minTextSize')),
+  'landscapeBox': maxPadding(map.get($vars, 'minTextSize-nav')),
 );
 
 $navbar: map-merge($vars, $navbar-values);
@@ -87,4 +91,36 @@ $navbar: map-merge($vars, $navbar-values);
   text-decoration: none;
   text-align: center;
   font-family: 'Alata';
+}
+
+// header stuff
+@function headerTextSize($min, $pref, $max) {
+  @return clamp($min, $pref, $max);
+}
+
+$header-values: (
+  'text-h1':
+    headerTextSize(
+      map.get($vars, 'minTextSize-header'),
+      preferredTextSize(
+        map.get($vars, 'fluidTextSize'),
+        map.get($vars, 'relativeTextSize')
+      ),
+      calc(map.get($vars, 'maxTextSize-header') * 2)
+    ),
+  'text-h2':
+    headerTextSize(
+      calc(map.get($vars, 'minTextSize-header') * 0.6),
+      preferredTextSize(
+        map.get($vars, 'fluidTextSize'),
+        map.get($vars, 'relativeTextSize')
+      ),
+      calc(map.get($vars, 'maxTextSize-header') * 0.6)
+    ),
+);
+
+$header: map-merge($vars, $header-values);
+
+@function header($key) {
+  @return map-get($header, $key);
 }
