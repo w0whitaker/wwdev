@@ -42,8 +42,13 @@ $vars: (
   @return clamp($min, $pref, $max);
 }
 
-@function centerPadding($height, $text) {
+@function squarePadding($width, $text) {
+  $height: $width;
   @return calc(($height - $text) / 2);
+}
+
+@function maxPadding($text) {
+  @return calc($text + 2rem);
 }
 
 $navbar-values: (
@@ -58,7 +63,7 @@ $navbar-values: (
       map.get($vars, 'maxTextSize')
     ),
   'squareBox':
-    centerPadding(
+    squarePadding(
       oneThirdVisible(map.get($vars, 'visible-full')),
       navTextSize(
         map.get($vars, 'minTextSize'),
@@ -69,6 +74,7 @@ $navbar-values: (
         map.get($vars, 'maxTextSize')
       )
     ),
+  'landscapeBox': maxPadding(map.get($vars, 'minTextSize')),
 );
 
 $navbar: map-merge($vars, $navbar-values);

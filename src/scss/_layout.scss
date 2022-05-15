@@ -101,10 +101,10 @@ article {
   padding: 0.5rem;
 }
 
-.big-square {
+.big-box {
   @extend %db;
-  padding: u.navbar('squareBox') 0;
   text-align: center;
+  padding: min(u.navbar('squareBox'), u.navbar('landscapeBox')) 0;
 }
 
 .footer-links {

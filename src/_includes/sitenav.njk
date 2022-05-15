@@ -5,7 +5,7 @@
       <ul>
         <div class="container">
           {% for link in collections.pages %}
-          <li id="{{ link.data.title | lower }}" class="big-square">
+          <li id="{{ link.data.title | lower }}" class="big-box">
             {% if link.data.title === "contact" %}
               <a href="mailto:{{ env.EMAIL_ADDRESS }}">{{ link.data.title }}</a>
             {% else %}
@@ -14,7 +14,7 @@
           </li>
           {%- endfor %}
           {% if currentUrl != '/' %}
-            <li id="home" class="big-square">
+            <li id="home" class="big-box">
               <a href="/">home</a>
             </li>
           {% endif %}
