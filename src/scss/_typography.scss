@@ -1,4 +1,4 @@
-@use '_theme';
+@use '_theme' as t;
 @use '_utilities' as u;
 
 @font-face {
@@ -22,6 +22,10 @@ body {
   font-family: 'Alata', sans-serif;
 }
 
+h2 {
+  font-size: u.main('text-h2');
+}
+
 blockquote {
   font-size: 0.875em;
   font-style: italic;
@@ -31,13 +35,13 @@ blockquote {
   h3 a {
     text-decoration-skip-ink: none;
     text-underline-offset: 0.5rem;
-    color: theme.color(primary);
+    color: t.color(primary);
   }
   p {
-    font-size: clamp(1.5rem, 1vw + 2rem, 3rem);
+    font-size: u.main('text-body');
   }
   time {
-    color: theme.color(secondary);
+    color: t.color(secondary);
   }
 }
 

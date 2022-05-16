@@ -25,7 +25,7 @@ main {
       display: grid;
       grid-template-columns: [left-gutter] 8.333325vw [column-1] 1fr [right-gutter] 8.333325vw [end];
       @media screen and (min-width: 1440px) {
-        margin: 8.333325vw 0 4.1666625vw;
+        margin: u.main('small-pad') 0 4.1666625vw;
         grid-template-columns: [left-gutter] 8.333325vw [column-1] 1fr [center-gutter] 8.333325vw [column-2] 1fr [right-gutter] 8.333325vw;
         grid-auto-rows: 1fr;
       }
@@ -65,6 +65,7 @@ main {
 section,
 article {
   max-width: 100%;
+  flex: 1 0 100%;
 }
 
 article {
@@ -74,7 +75,7 @@ article {
 }
 
 :is(h2:not(header h2), h5, h6, section) {
-  @extend %pl-standard;
+  padding: u.main('big-pad') u.main('small-pad') u.main('med-pad');
   @media screen and (min-width: 768px) {
     flex-basis: 100%;
   }
@@ -85,7 +86,6 @@ article {
   flex-wrap: wrap;
   h2:not(header h2) {
     border-bottom: 0.125rem solid t.color(text);
-    padding: 8.333325vw 0 0 4.1666625vw;
     @media screen and (min-width: 768px) {
       padding-left: 0;
     }
