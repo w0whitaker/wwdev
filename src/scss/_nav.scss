@@ -50,8 +50,10 @@ nav {
         }
         @media screen and (min-width: 1024px) {
           background: t.color('near-white');
-          width: calc(100% / 3);
-          left: 0;
+          width: u.navbar('text');
+          top: calc(u.navbar('landscapeBox') + 0.75ch);
+          left: u.navbar('text');
+          height: calc(u.navbar('text') - 1.25ch);
         }
       }
     }
