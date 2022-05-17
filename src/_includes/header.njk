@@ -2,9 +2,11 @@
 
 <header id="site-header">
   <div class="container">
-    <h1>{{ meta.siteName }}</h1>
-  {% if currentUrl === '/' %}
-    <h2 >{{ meta.siteDescription }}</h2>
+    <div class="site-branding">
+      <h1>{{ meta.siteName }}</h1>
+    {% if currentUrl === '/' %}
+      <h2 >{{ meta.siteDescription }}</h2>
+    </div>
   </div>
     {% include 'logo.njk' %}
   {% endif %}

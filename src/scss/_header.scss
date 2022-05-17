@@ -1,13 +1,16 @@
-@use '_theme';
+@use '_theme' as t;
 @use '_utilities' as u;
 
 #site-header {
   width: 100%;
-  background-color: theme.color('near-black');
-  color: theme.color('near-white');
-  :is(h1, h2) {
-    flex: 1 0 100%;
-    padding: min(2vw, 3rem) 0;
+  background-color: t.color('near-black');
+  color: t.color('near-white');
+  .site-branding {
+    :is(h1, h2) {
+      flex: 1 0 100%;
+      padding: u.main('small-pad') 0;
+    }
+    padding: u.main('big-pad') u.main('small-pad') u.main('med-pad');
   }
   h1 {
     align-self: flex-end;
@@ -20,14 +23,8 @@
   h2 {
     font-size: u.header('text-h2');
   }
-
-  .container {
-    padding: 8.333325vw;
-    @media screen and (min-width: 768px) {
-      padding: 0 0 0 8.333325vw;
-    }
-  }
   @media screen and (min-width: 768px) {
+    padding: 0 u.main('small-pad');
     display: flex;
     justify-content: space-between;
     .container {
@@ -48,33 +45,34 @@
     .bb8b4b59-a8c9-46a7-b9cf-d16a6137107f,
     .e97b6a6e-dda7-4481-9356-51b10ae28332,
     .f855ad9b-c522-4cf5-b881-807058c6d2b0 {
-      fill: theme.color('near-white');
+      fill: t.color('near-white');
       stroke-miterlimit: 10;
       stroke-width: 16px;
     }
     .f855ad9b-c522-4cf5-b881-807058c6d2b0 {
-      stroke: theme.color('near-white');
+      stroke: t.color('near-white');
     }
     .ae6fb684-09d5-4a7f-96e2-d605cc3c8b83 {
-      stroke: theme.color('red');
+      stroke: t.color('red');
     }
     .bb8b4b59-a8c9-46a7-b9cf-d16a6137107f {
-      stroke: theme.color('yellow-dark');
+      stroke: t.color('yellow-dark');
     }
     .ad545896-08cc-4c2d-b57f-15bf54eabd82 {
-      stroke: theme.color('yellow-light');
+      stroke: t.color('yellow-light');
     }
     .e97b6a6e-dda7-4481-9356-51b10ae28332 {
-      stroke: theme.$green;
+      stroke: t.$green;
     }
     .b5e7dde8-a9bd-4897-9e91-53840cca5e83 {
-      stroke: theme.color('blue');
+      stroke: t.color('blue');
     }
     .a59e287d-dd79-418f-945e-2be028e1ba6d {
-      stroke: theme.color('red-dark');
+      stroke: t.color('red-dark');
     }
   }
   @media screen and (min-width: 768px) {
-    flex: 0 1 33.333333vw;
+    flex: 0 1 min(45%, 28rem);
+    align-self: flex-end;
   }
 }
