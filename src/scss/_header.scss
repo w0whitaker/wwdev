@@ -6,11 +6,12 @@
   background-color: t.color('near-black');
   color: t.color('near-white');
   .site-branding {
+    align-self: center;
     :is(h1, h2) {
       flex: 1 0 100%;
       padding: u.main('small-pad') 0;
     }
-    padding: u.main('big-pad') u.main('small-pad') u.main('med-pad');
+    padding: u.main('small-pad');
   }
   h1 {
     align-self: flex-end;
@@ -29,6 +30,7 @@
     justify-content: space-between;
     .container {
       flex: 1;
+      justify-content: space-between;
     }
   }
 }

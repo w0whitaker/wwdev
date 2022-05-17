@@ -73,9 +73,6 @@ main {
     }
     @media screen and (min-width: 1024px) {
       flex: 0 1 calc(100% / 4);
-      & > .container {
-        display: flex;
-      }
     }
   }
 }
@@ -93,7 +90,7 @@ article {
   }
 }
 
-:is(h2:not(header h2), h5, h6, section) {
+:is(h2:not(header h2), h3, h5, h6, section) {
   padding: u.main('big-pad') u.main('small-pad') u.main('med-pad');
   @media screen and (min-width: 768px) {
     flex-basis: 100%;
