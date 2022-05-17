@@ -151,6 +151,10 @@ $navbar: map-merge($vars, $navbar-values);
   @return min(calc((($width * 0.375) - $text) * 0.5), 1.5rem);
 }
 
+@function vSmallPad($width, $text) {
+  @return min(calc(($width * 0.375) - $text) * 0.125);
+}
+
 $main-values: (
   'big-pad':
     bigPad(
@@ -178,6 +182,18 @@ $main-values: (
     ),
   'small-pad':
     smallPad(
+      map.get($vars, 'viewport-full'),
+      mainTextSize(
+        map.get($vars, 'minTextSize'),
+        preferredTextSize(
+          map.get($vars, 'fluidTextSize'),
+          map.get($vars, 'relativeTextSize')
+        ),
+        map.get($vars, 'maxTextSize')
+      )
+    ),
+  'vSmall-pad':
+    vSmallPad(
       map.get($vars, 'viewport-full'),
       mainTextSize(
         map.get($vars, 'minTextSize'),

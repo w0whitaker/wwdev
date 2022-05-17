@@ -15,6 +15,7 @@ body {
   }
 }
 
+// start main
 main {
   @media screen and (min-width: 768px) {
     /*
@@ -46,6 +47,23 @@ main {
   }
   // main content if we're not on the home page
   &.page-main {
+    article {
+      h3,
+      p,
+      picture {
+        padding: u.main('med-pad') u.main('small-pad') u.main('vSmall-pad');
+      }
+      h3 {
+        border-bottom: 0.125rem solid t.color(text);
+        @media screen and (min-width: 768px) {
+          padding-left: 0;
+        }
+        @media screen and (min-width: 1024px) {
+          margin-bottom: 0;
+          align-self: end;
+        }
+      }
+    }
     @media screen and (min-width: 768px) {
       > .container {
         ul {
@@ -61,6 +79,7 @@ main {
     }
   }
 }
+// end main
 
 section,
 article {

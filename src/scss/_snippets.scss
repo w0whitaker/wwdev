@@ -2,7 +2,6 @@
 @use 'utilities' as u;
 
 .snippet {
-  background: t.color('gray-light');
   padding: u.main('big-pad') u.main('big-pad') u.main('med-pad')
     u.main('small-pad');
 
