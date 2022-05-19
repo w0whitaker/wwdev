@@ -27,6 +27,10 @@ h2,
   font-size: u.main('text-h2');
 }
 
+.page-main h3 a {
+  color: t.color('primary');
+}
+
 blockquote {
   font-size: 0.875em;
   font-style: italic;

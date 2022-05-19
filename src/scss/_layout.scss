@@ -48,19 +48,23 @@ main {
   // main content if we're not on the home page
   &.page-main {
     article {
-      h3,
-      p,
-      picture {
-        padding: u.main('med-pad') u.main('small-pad') u.main('vSmall-pad');
-      }
       h3 {
-        border-bottom: 0.125rem solid t.color(text);
-        @media screen and (min-width: 768px) {
-          padding-left: 0;
-        }
+        padding: u.main('big-pad') u.main('small-pad') u.main('vSmall-pad');
         @media screen and (min-width: 1024px) {
           margin-bottom: 0;
           align-self: end;
+        }
+      }
+      picture {
+        padding: u.main('med-pad') 0 u.main('big-pad');
+        max-width: 50%;
+      }
+      p {
+        padding: 0 u.main('small-pad');
+      }
+      footer {
+        ol {
+          margin-top: u.main('small-pad');
         }
       }
     }
@@ -82,6 +86,7 @@ section,
 article {
   max-width: 100%;
   flex: 1 0 100%;
+  overflow: auto;
 }
 
 article {

@@ -1,7 +1,7 @@
 @use 'theme';
 @use '_utilities';
 
-footer {
+footer:not(.Footnotes) {
   margin-top: 16.66665vw;
   background: theme.color('near-black');
   color: theme.color('near-white');

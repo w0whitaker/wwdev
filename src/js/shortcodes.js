@@ -1,8 +1,8 @@
-const markdownIt = require('./markdownCustom');
+const markdownIt = require('markdown-it');
 const outdent = require('outdent');
 
 const snippet = (content) => {
-  return markdownIt.render(
+  return markdownIt({ html: true }).render(
     outdent`<section class="snippet">${content}</section>`
   );
 };

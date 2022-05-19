@@ -1,5 +1,4 @@
 // const markdownIt = require('markdown-it');
-const markdownItCustom = require('./src/js/markdownCustom.js');
 const snippet = require('./src/js/shortcodes.js');
 const Image = require('@11ty/eleventy-img');
 const path = require('path');
@@ -8,6 +7,7 @@ const svgSprite = require('eleventy-plugin-svg-sprite');
 const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight');
 const footnotes = require('eleventy-plugin-footnotes');
 const eleventyNavigationPlugin = require('@11ty/eleventy-navigation');
+const markdownIt = require('markdown-it');
 // const outdent = require("outdent");
 
 require('dotenv').config();
@@ -115,7 +115,16 @@ module.exports = function (eleventyConfig) {
     return projects;
   });
 
-  eleventyConfig.setLibrary('md', markdownItCustom);
+  // eleventyConfig.setLibrary('md', markdownItCustom);
+
+  eleventyConfig.addFilter('ohai', () => {
+    return console.log('ohai ohai');
+  });
+
+  // Parse Markdown properly in excerpts
+  eleventyConfig.addFilter('md', function (content = '') {
+    return markdownIt({ html: true }).render(content);
+  });
 
   eleventyConfig.addFilter('isoDate', function (value) {
     return value.toISOString();
