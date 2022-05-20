@@ -17,6 +17,7 @@ body {
 
 // start main
 main {
+  width: 100%;
   @media screen and (min-width: 768px) {
     /*
      * grid kicks in at 768px wide
@@ -95,7 +96,7 @@ article {
   }
 }
 
-:is(h2:not(header h2), h3, h5, h6, section) {
+:is(h2:not(header h2), h3, h5, h6) {
   padding: u.main('big-pad') u.main('small-pad') u.main('med-pad');
   @media screen and (min-width: 768px) {
     flex-basis: 100%;
@@ -115,6 +116,10 @@ article {
       align-self: end;
     }
   }
+}
+
+pre {
+  width: 100vw;
 }
 
 .sm-square {

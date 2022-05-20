@@ -374,6 +374,7 @@ function colorButtons() {
 }
 ```
 
+</section>
 <section>
 
 ### conclusion
