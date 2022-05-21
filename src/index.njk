@@ -24,7 +24,7 @@ Hi! I'm a front-end developer who wants to help make the web the creative, inclu
 {% if posts %}
 {% for post in posts %}
 - ### [{{ post.data.title }}]({{ post.url }})<br>
-    #### <time datetime="{{ post.date | isoDate }}">{{ post.date | humanDate }}</time><br>
+    <time datetime="{{ post.date | isoDate }}">{{ post.date | humanDate }}</time><br>
     <p>{{ post.data.excerpt }}</p>
 {% endfor %}
 {% else %}

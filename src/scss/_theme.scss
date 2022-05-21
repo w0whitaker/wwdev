@@ -28,6 +28,7 @@ $color-theme: (
   'secondary-alt': map.get($base-colors, 'red-dark'),
   'text': map.get($base-colors, 'near-black'),
   'background': map.get($base-colors, 'near-white'),
+  'shadow': color.adjust(map.get($base-colors, 'near-black'), $alpha: -0.5),
 ) !default;
 
 $colors: map-merge($base-colors, $color-theme);

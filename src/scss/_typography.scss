@@ -14,7 +14,8 @@
   font-display: swap;
 }
 
-body {
+body,
+.Footnotes__list {
   font-family: 'Quattrocento', serif;
 }
 
@@ -45,13 +46,14 @@ blockquote {
   p {
     font-size: u.main('text-body');
   }
-  time {
-    color: t.color(secondary);
-  }
 }
 
 ul li {
   list-style: none;
+}
+
+time {
+  color: t.color(secondary);
 }
 
 footer {

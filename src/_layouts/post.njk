@@ -2,10 +2,8 @@
 layout: page.njk
 ---
 
-<h2>{{ title }}</h2>
-<div class="container">
-  <article>
-    {{ content | md | safe }}
-    {% footnotes %}
-  </article>
-</div>
+<article>
+  <h2>{{ title }}</h2>
+  {{ content | md | safe }}
+  {% footnotes %}
+</article>

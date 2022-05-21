@@ -9,6 +9,7 @@ order: 2
       <h3>
         <a href="{{ post.url }}">{{ post.data.title }}</a>
       </h3>
+      <time datetime="{{ post.date | isoDate }}">{{ post.date | humanDate }}</time>
       <p>{{ post.data.excerpt | safe }}</p>
     </article>
   </li>

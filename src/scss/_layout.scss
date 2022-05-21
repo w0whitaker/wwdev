@@ -18,6 +18,13 @@ body {
 // start main
 main {
   width: 100%;
+  section,
+  article {
+    max-width: 100%;
+    flex: 1 0 100%;
+    overflow: auto;
+  }
+
   @media screen and (min-width: 768px) {
     /*
      * grid kicks in at 768px wide
@@ -49,23 +56,35 @@ main {
   // main content if we're not on the home page
   &.page-main {
     article {
+      padding: u.main('big-pad') 0 u.main('med-pad');
+      :is(h2, h3, h4, h5, h6, table, p, picture, time, ol) {
+        padding: u.main('vSmall-pad') u.main('small-pad');
+      }
       h3 {
-        padding: u.main('big-pad') u.main('small-pad') u.main('vSmall-pad');
         @media screen and (min-width: 1024px) {
           margin-bottom: 0;
           align-self: end;
         }
       }
       picture {
-        padding: u.main('med-pad') 0 u.main('big-pad');
-        max-width: 50%;
+        padding-top: u.main('med-pad');
+        max-width: calc(u.main('visible-full') - u.main('maxTextSize'));
+        filter: drop-shadow(5px 5px 5px t.color('shadow'));
       }
-      p {
-        padding: 0 u.main('small-pad');
-      }
+
       footer {
         ol {
           margin-top: u.main('small-pad');
+
+          .Footnotes__list-item p {
+            padding-bottom: 0;
+          }
+
+          .Footnotes__back-link {
+            display: block;
+            text-align: right;
+            padding-right: u.main('big-pad');
+          }
         }
       }
     }
@@ -83,20 +102,7 @@ main {
 }
 // end main
 
-section,
-article {
-  max-width: 100%;
-  flex: 1 0 100%;
-  overflow: auto;
-}
-
-article {
-  :is(h2, h3, h4, h5, h6) {
-    padding-left: 0;
-  }
-}
-
-:is(h2:not(header h2), h3, h5, h6) {
+:is(h2:not(header h2), h5, h6) {
   padding: u.main('big-pad') u.main('small-pad') u.main('med-pad');
   @media screen and (min-width: 768px) {
     flex-basis: 100%;
@@ -116,6 +122,11 @@ article {
       align-self: end;
     }
   }
+}
+
+time {
+  display: inline-block;
+  margin: u.main('small-pad') 0;
 }
 
 pre {
