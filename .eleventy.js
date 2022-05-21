@@ -115,10 +115,9 @@ module.exports = function (eleventyConfig) {
     return projects;
   });
 
-  // eleventyConfig.setLibrary('md', markdownItCustom);
-
-  eleventyConfig.addFilter('ohai', () => {
-    return console.log('ohai ohai');
+  eleventyConfig.setFrontMatterParsingOptions({
+    excerpt: true,
+    excerpt_separator: '<!-- more -->',
   });
 
   // Parse Markdown properly in excerpts

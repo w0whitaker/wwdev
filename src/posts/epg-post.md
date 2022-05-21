@@ -1,6 +1,6 @@
 ---
-title: 'ephemeral pattern generator'
-excerpt: 'Working with event listeners in JavaScript to manipulate the DOM.'
+title: 'Manipulating the DOM with event listeners'
+teaser: 'Working with event listeners in JavaScript to add and modify elements in the DOM.'
 ---
 
 <section>
@@ -12,7 +12,7 @@ That's essentially what an event listener is. Instead of all that training thoug
 I wanted to practice using event handlers, so I built a little [app](https://ephemeral-pattern-generator.netlify.app/) that adds SVG glyphs to the screen. Once added, the color of the glyphs can be changed by selecting one and clicking on a button. Not particularly useful, maybe, but kind of fun.
 
 </section>
-
+<!-- more -->
 <section>
 
 ### The HTML
