@@ -24,7 +24,7 @@ $vars: (
 
 // typography functions
 
-@function oneThirdVisible($width) {
+@function oneThird($width) {
   @return calc($width / 3);
 }
 
@@ -106,18 +106,19 @@ $navbar-values: (
       ),
       map.get($vars, 'maxTextSize')
     ),
-  'boxWidth': oneThirdVisible(map.get($vars, 'visible-full')),
+  'boxWidth': oneThird(map.get($vars, 'visible-full')),
   'squareBox':
     squarePadding(
-      oneThirdVisible(map.get($vars, 'visible-full')),
-      navTextSize(
-        map.get($vars, 'minTextSize'),
-        preferredTextSize(
-          map.get($vars, 'fluidTextSize'),
-          map.get($vars, 'relativeTextSize')
-        ),
-        map.get($vars, 'maxTextSize')
-      )
+      /* $height(aka $width) */ oneThird(map.get($vars, 'viewport-full')),
+      /* $text */
+        navTextSize(
+          map.get($vars, 'minTextSize'),
+          preferredTextSize(
+            map.get($vars, 'fluidTextSize'),
+            map.get($vars, 'relativeTextSize')
+          ),
+          map.get($vars, 'maxTextSize')
+        )
     ),
   'landscapeBox': maxPadding(map.get($vars, 'minTextSize')),
 );
@@ -129,6 +130,7 @@ $navbar: map-merge($vars, $navbar-values);
 }
 
 @mixin nav-link {
+  display: block;
   text-decoration: none;
   text-align: center;
   font-family: 'Alata';
@@ -180,30 +182,8 @@ $main-values: (
         map.get($vars, 'maxTextSize')
       )
     ),
-  'small-pad':
-    smallPad(
-      map.get($vars, 'viewport-full'),
-      mainTextSize(
-        map.get($vars, 'minTextSize'),
-        preferredTextSize(
-          map.get($vars, 'fluidTextSize'),
-          map.get($vars, 'relativeTextSize')
-        ),
-        map.get($vars, 'maxTextSize')
-      )
-    ),
-  'vSmall-pad':
-    vSmallPad(
-      map.get($vars, 'viewport-full'),
-      mainTextSize(
-        map.get($vars, 'minTextSize'),
-        preferredTextSize(
-          map.get($vars, 'fluidTextSize'),
-          map.get($vars, 'relativeTextSize')
-        ),
-        map.get($vars, 'maxTextSize')
-      )
-    ),
+  'small-pad': 24px,
+  'vSmall-pad': 12px,
   'text-h2':
     mainTextSize(
       map.get($vars, 'minTextSize'),

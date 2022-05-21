@@ -8,6 +8,7 @@ nav {
     font-size: u.navbar('text');
     line-height: u.navbar('text');
     color: t.color('near-white');
+    padding: min(u.navbar('squareBox'), u.navbar('landscapeBox')) 0;
   }
   ul {
     width: 100%;
@@ -49,11 +50,8 @@ nav {
           width: calc(100vw / 6);
         }
         @media screen and (min-width: 1024px) {
-          background: t.color('near-white');
-          width: u.navbar('text');
-          top: calc(u.navbar('landscapeBox') + 0.75ch);
-          left: u.navbar('text');
-          height: calc(u.navbar('text') - 1.25ch);
+          height: 0;
+          width: 0;
         }
       }
     }
