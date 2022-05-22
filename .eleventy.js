@@ -93,6 +93,7 @@ module.exports = function (eleventyConfig) {
   });
   // Copy `src/style.css` to `_site/style.css`
   eleventyConfig.addPassthroughCopy('src/style.css');
+  eleventyConfig.addPassthroughCopy({ 'src/fonts': 'css/fonts' });
 
   // Plugins
   eleventyConfig.addPlugin(syntaxHighlight);
