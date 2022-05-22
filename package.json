@@ -9,7 +9,7 @@
     "watch:eleventy": "npx @11ty/eleventy --serve",
     "start:debug": "DEBUG=Eleventy* npx @11ty/eleventy --serve",
     "start": "npm-run-all build:sass --parallel watch:*",
-    "build": "npm-run-all build:sass build:@11ty/eleventy",
+    "build": "npm-run-all build:sass npx @11ty/eleventy",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
